@@ -1,0 +1,15 @@
+.container{
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: aquamarine;
+}
+body{
+    margin: 0px;
+}
+.banner > img{
+ width: 95%;
+}
+.form{
+    display: block;
+    justify-content: center;
+}
