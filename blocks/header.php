@@ -25,7 +25,7 @@ include_once('../class/user.php');
   <div class="column"><a href="./register.php">Register</a></div>
   <div class="column"><a href="./login.php">Login</a></div>
   <div class="column"><a href="./index.php">Index</a></div>
-  <div class="column"><a href="./item-overzicht">Itemoverzicht</a></div>
+  <div class="column"><a href="./item-overzicht.php">Itemoverzicht</a></div>
   <div class="column"><a href="./session.php">Sessionviewer</a></div>
   <div class="column"><a href="./gebruiker-bewerk.php">Gebruiker Bewerk</a></div>
   <div class="column"><a href="./gebruiker-verwijder.php">Gebruiker verwijder</a></div>

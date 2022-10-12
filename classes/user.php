@@ -1,4 +1,5 @@
-<?php require_once('database.php');
+<?php 
+require_once('../verwerk/database.php');
 
 class User{  
 private $conn;

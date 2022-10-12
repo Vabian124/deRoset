@@ -7,10 +7,21 @@
     <link rel="stylesheet" href="style/item-overzicht.css">
     <title>Document</title>
 </head>
-<?php include('./blocks/header.php'); ?>
+<?php include('./blocks/header.php');
+include_once('./verwerk/database.php');
+include_once('./classes/product.php');
+$products = new Product($conn);
+$allProducts= $products->getAll();
+var_dump($allProducts);
+?>
+<br>
 <body>
-    <div class="grid-container">
-        <div class="grid-item">1</div>
+    <?php
+    foreach($allProducts as $product)
+    {
+        echo '<a href="./item-bewerk.php?id='.$product['id'].'">'.$product['name'].'</a><br>';
+    }
+    ?>
     </div>
 </body>
 </html>

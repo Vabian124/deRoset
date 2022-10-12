@@ -1,11 +1,6 @@
 <?php
 
-require_once('product.php');
+require_once('../classes/product.php');
+require_once('./database.php');
 $products = new Product($conn);
 $products = $products->getall();
-foreach($products as $product)
-{
-    var_dump($product['id']);
-    
-    //id 	name 	cost_price 	selling_price 	category 	
-}
