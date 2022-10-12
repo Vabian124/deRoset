@@ -1,5 +1,5 @@
 <?php 
-include ('../blocks/header.php');
+include_once ('../blocks/header.php');
 include_once('./database.php');
 include_once('../classes/user.php');
 $user = new User($conn);

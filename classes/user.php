@@ -1,5 +1,5 @@
 <?php 
-require_once('../verwerk/database.php');
+//require_once('../verwerk/database.php');
 
 class User{  
 private $conn;
@@ -9,7 +9,6 @@ public function __construct($conn)
 {
     $this->conn=$conn;
    
-
 }   
 public function login($email, $wachtwoord)
 {
@@ -22,7 +21,6 @@ public function login($email, $wachtwoord)
         echo "Login Geslaagd!";
         $_SESSION['uid'] = $row['id'];
         $_SESSION['user'] =$row;
-        header("location: ../index.php");
     }  
     else{  
         echo $count;
@@ -42,17 +40,31 @@ if ($count==0) {
     $sql = "INSERT INTO users (firstname, lastname, email, password ,date_of_birth, phonenumber,adress,zipcode,city,role)
         VALUES ('$voornaam', '$achternaam','$email', '$wachtwoord','$geboortedatum', '$telefoonnummer','$adres','$postcode','$stad','$rol')";
     if (mysqli_query($this->conn, $sql)) {
-        header("location: ../index.php");
+       
 
     }
 }
 }
+private function query($sql)
+{
+    return mysqli_query($this->conn, $sql);
+}
+public function getAll()
+    {
+        $sql = "SELECT * FROM `users`";
+        return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
 
+    }
+    public function getById($id)
+    {
+        $sql = "SELECT * FROM `users` WHERE id=$id";
+        return mysqli_fetch_assoc($this->query($sql));
+
+    }
 public function update($voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad)
 {
     $sql = "select * from users where email = '$email'";
     $result = mysqli_query($this->conn, $sql);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
 if ($count!=0) {
 
@@ -60,14 +72,14 @@ if ($count!=0) {
 
     $sql = "UPDATE users SET firstname='$voornaam', lastname='$achternaam', password = '$wachtwoord' ,date_of_birth = '$geboortedatum', phonenumber = '$telefoonnummer',adress='$adres',zipcode='$postcode',city='$stad' WHERE users.email='$email'";
     if (mysqli_query($this->conn, $sql)) {
-        session_destroy();
-        session_abort();
-        session_start();
+        // session_destroy();
+        // session_abort();
+        // session_start();
 
-        $user = new User($this->conn);
+        // $user = new User($this->conn);
 
-        $user->login($email,$wachtwoord);
-        header("location: ../index.php");
+        // $user->login($email,$wachtwoord);
+
 
     }
 }

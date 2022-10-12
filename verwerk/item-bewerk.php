@@ -7,10 +7,12 @@ if (isset($_POST["submit"])) {
     
     if (
         !empty($_POST["name"])
-        || !empty($_POST["price_per_kg"])
+        && !empty($_POST["price_per_kg"])
         && !empty($_POST["is_flavor_of_week"])
         && !empty($_POST["category"])
+        
     ) {
+        
         //allemaal moeten ze true zijn
         $name = $_POST["name"];
         $price_per_kg = $_POST["price_per_kg"];
@@ -20,7 +22,7 @@ if (isset($_POST["submit"])) {
         $product = new Product($conn);
         $product->update($id,$name,$price_per_kg,$is_flavor_of_week,$category);
         mysqli_close($conn); // Sluit de database verbinding
-        die;
+
     
     }
     }

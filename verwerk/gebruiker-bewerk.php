@@ -4,7 +4,6 @@ include_once('./database.php');
 include_once('../classes/user.php');
 
 if (isset($_POST["submit"])) {
-    
     if (
         !empty($_POST["voornaam"])
         && !empty($_POST["achternaam"])
@@ -29,7 +28,9 @@ if (isset($_POST["submit"])) {
         
         $user = new User($conn);
         $user->update($voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad);
+        header('../gebruikeroverzicht.php');
         mysqli_close($conn); // Sluit de database verbinding
+        
     
     }
     }

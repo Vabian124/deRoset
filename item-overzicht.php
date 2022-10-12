@@ -12,14 +12,16 @@ include_once('./verwerk/database.php');
 include_once('./classes/product.php');
 $products = new Product($conn);
 $allProducts= $products->getAll();
-var_dump($allProducts);
 ?>
 <br>
 <body>
+    <a href="./item-toevoegen.php" style="background-color:green">Item toevoegen</a><br><br>
     <?php
     foreach($allProducts as $product)
     {
-        echo '<a href="./item-bewerk.php?id='.$product['id'].'">'.$product['name'].'</a><br>';
+        if($product['is_flavor_of_week']=="0"){$is_fow = "No";}else{$is_fow = "Yes";}
+
+        echo '<a href="./item-bewerk.php?id='.$product['id'].'">'.$product['name']." - ".$product['price_per_kg']."/kg - ".$is_fow." - ".$product['category'].'</a><br><a style="background-color:red;" href="./item-verwijder.php?id='.$product['id'].'">Verwijder</a><br>';
     }
     ?>
     </div>

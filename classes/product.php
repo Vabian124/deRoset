@@ -25,11 +25,19 @@ $conn = $databaseConnection->getConnection();
         $sql = "SELECT * FROM `products`";
         return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
     }
+    public function create($name,$price_per_kg,$is_flavor_of_week,$category)
+    {
+        $sql = "INSERT INTO  products SET name='$name', price_per_kg='$price_per_kg', is_flavor_of_week = '$is_flavor_of_week' ,category = '$category'";
+        if (mysqli_query($this->conn, $sql)) {
+            header("location: ../index.php");
+    
+        
+    }
+    }
     public function update($id,$name,$price_per_kg,$is_flavor_of_week,$category)
     {
         $sql = "select * from products where id = '$id'";
         $result = mysqli_query($this->conn, $sql);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
         if ($count!=0) {
     
@@ -37,19 +45,16 @@ $conn = $databaseConnection->getConnection();
     
         $sql = "UPDATE products SET name='$name', price_per_kg='$price_per_kg', is_flavor_of_week = '$is_flavor_of_week' ,category = '$category' WHERE products.id='$id'";
         if (mysqli_query($this->conn, $sql)) {
-
+            echo "succes";
     
         }
     }
     }
-    public function delete($email)
+    public function delete($id)
     {
-        $sql = "DELETE FROM users WHERE users.email ='$email'";
+        $sql = "DELETE FROM products WHERE products.id ='$id'";
         if (mysqli_query($this->conn, $sql)) {
-            session_destroy();
-            session_unset();
-            session_abort();
-            header("location: ../index.php");
+            header("location: ./index.php");
         }
     }
 }
