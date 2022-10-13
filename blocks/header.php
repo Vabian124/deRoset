@@ -30,5 +30,7 @@ include_once('../class/user.php');
   <div class="column"><a href="./session.php">Sessionviewer</a></div>
   <div class="column"><a href="./gebruiker-bewerk.php">Gebruiker Bewerk</a></div>
   <div class="column"><a href="./gebruiker-verwijder.php">Gebruiker verwijder</a></div>
+  <div class="column"><a href="./bestellen.php">Bestellen</a></div>
+  <div class="column"><a href="./winkelmandje.php">winkelmandje</a></div>
   
 </div>

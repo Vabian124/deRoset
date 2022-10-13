@@ -11,6 +11,7 @@
 include_once('./verwerk/database.php');
 include_once('./classes/user.php');
 
+$id=$_SESSION['user']['id'];
 $firstname = $_SESSION['user']['firstname'];
 $lastname  = $_SESSION['user']['lastname'];
 $email = $_SESSION['user']['email'];
