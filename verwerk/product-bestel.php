@@ -4,6 +4,7 @@ include_once('../classes/product.php');
 include_once('./database.php');
 include_once('./session.php');
 
+
 $id = $_GET['id'];
 $name = $_GET['name'];
 $product = new Product($conn);

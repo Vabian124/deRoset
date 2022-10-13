@@ -25,12 +25,12 @@ class Order
         $sql = "SELECT * FROM `orders`";
         return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
     }
-    public function create($user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city)
+    public function create($user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city,$name)
     {
-        $sql = "INSERT INTO  orders SET  user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city'";
-        if (mysqli_query($this->conn, $sql)) {echo "succes";}
+        $sql = "INSERT INTO  orders SET  user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',name='$name'";
+        mysqli_query($this->conn, $sql);
     }
-    public function update($id,$user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city)
+    public function update($id,$user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city,$name)
     {
         $sql = "select * from orders where id = '$id'";
         $result = mysqli_query($this->conn, $sql);
@@ -39,7 +39,7 @@ class Order
     
     
     
-        $sql = "UPDATE orders SET user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery', isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city' WHERE orders.id='$id'";
+        $sql = "UPDATE orders SET user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery', isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',name='$name' WHERE orders.id='$id'";
         if (mysqli_query($this->conn, $sql)) {
             echo "succes";
     

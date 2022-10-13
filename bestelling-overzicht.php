@@ -27,8 +27,7 @@ $product = new Product($conn);
 
         echo '<a href="./bestelling-detail.php?id='.$id.'">'.$product->getById($id).
         " - ".$order['price_per_kg']."/kg - ".$isRecieved." - ".$order['category'].
-        '</a><br><a style="background-color:red;" href="./Bestelling-verwijder.php?id='
-        .$order['id'].'">Verwijder</a><br>';
+        '</a><br><a style="background-color:red;" href="./Bestelling-verwijder.php?id='.$order['id'].'">Verwijder</a><br>';
     }
     ?>
     </div>

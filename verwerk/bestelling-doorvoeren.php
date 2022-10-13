@@ -6,17 +6,12 @@ include('../blocks/header.php');
 
     if(isset($_GET['continue']))
     {
-        var_dump($_POST,"_______-");
         $databaseConnection = new Database();
         $conn = $databaseConnection->getConnection();    
         $order = new Order($conn);
 
         $user_id=$_SESSION['user']['id'];
-        var_dump($_SESSION['winkelmandje']);
         foreach($_SESSION['winkelmandje'] as $item){
-            echo "<br><br><br>";
-            var_dump($item);
-            echo "<br><br><br>AAAAAAAAAAA";
 
         
         $product_id=$item['id'];
@@ -34,6 +29,7 @@ include('../blocks/header.php');
         $zipcode=$_POST['zipcode'];
         $adress=$_POST['adress'];
         $city=$_POST['city'];
+        $name=$_POST['firstname']." ".$_POST['lastname'];
 
         $order->create($user_id,
         $product_id,
@@ -42,8 +38,18 @@ include('../blocks/header.php');
         $isRecieved,
         $zipcode,
         $adress,
-        $city);
+        $city,
+        $name);
+
         }
+        mysqli_close($conn);
+        unset($_SESSION['winkelmandje']);
+        if(!isset($_SESSION['winkelmandje']))
+        {
+            header('../bestelling-afgerond');
+        }
+    
+
         
     }
     else{
@@ -59,13 +65,13 @@ include('../blocks/header.php');
         ";
         //<a href=\"&continue=yes\" style=\"background-color:palegreen\">Ja</a>
 
-        var_dump($_SESSION['user']);
+  
     }
     else
     {
-        echo "Niet ingelogd";
+
     }
-    die;
+    
     }
 
     ?>

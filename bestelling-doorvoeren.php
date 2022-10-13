@@ -21,25 +21,25 @@ include('./blocks/header.php');
     <div class="rendered-form">
     <div class="">
         <label for=" " class="formitem">Voornaam</label>
-        <input type="text" class="form-control" access="false" value="Fabian" name="firstname">
+        <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['firstname'] ?>" name="firstname">
     </div>
     <div class="">
         <label for="lastname" class="formitem">Achternaam</label>
-        <input type="text" class="form-control" access="false" value="St" name="lastname">
+        <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['lastname'] ?>" name="lastname">
     </div>
     <div class="">
         <label for="adress" class="formitem">Adres</label>
-        <input type="text" class="form-control" access="false" value="MNDL 11"  name="adress">
+        <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['adress'] ?>"  name="adress">
     </div>
     <div class="">
         <label for="zipcode" class="formitem">Postcode</label>
-        <input type="text" class="form-control" access="false" value="2766AB" name="zipcode">
+        <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['zipcode'] ?>" name="zipcode">
     </div>
     <div class="">
         <label for="city" class="formitem">Stad
             <br>
         </label>
-        <input type="text" class="form-control" access="false" value="Stadje" name="city">
+        <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['city'] ?>" name="city">
     </div>
     <div class="">
         <label for="mvv" class="formbuilder-select-label">Manier van verkrijgen
@@ -54,7 +54,7 @@ include('./blocks/header.php');
         <label for="dateOfRecieving" class="formbuilder-date-label">Datum van bezorgen/afhalen
             <br>
         </label>
-        <input type="datetime" class="form-control" access="false" value="2022-10-06" name="dateOfRecieving">
+        <input type="date" class="form-control" access="false" value="2023-01-01" name="dateOfRecieving">
     </div>
     <div class="">
         <button type="submit"  access="false">Afronden en Betalen
