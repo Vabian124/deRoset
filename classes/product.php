@@ -25,6 +25,18 @@ $conn = $databaseConnection->getConnection();
         $sql = "SELECT * FROM `products`";
         return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
     }
+    public function getAllNFK()
+    {
+        $sql = "SELECT * FROM `orders` 
+        INNER JOIN orders on orders.product_id = products.id
+        INNER JOIN user s on s.ProductID = p.ProductID  
+
+        
+        ";
+        
+        return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
+    }
+
     public function create($name,$price_per_kg,$is_flavor_of_week,$category)
     {
         $sql = "INSERT INTO  products SET name='$name', price_per_kg='$price_per_kg', is_flavor_of_week = '$is_flavor_of_week' ,category = '$category'";
