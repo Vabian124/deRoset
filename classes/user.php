@@ -61,16 +61,13 @@ public function getAll()
         return mysqli_fetch_assoc($this->query($sql));
 
     }
-public function update($voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad)
+public function update($id,$voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad)
 {
-    $sql = "select * from users where email = '$email'";
-    $result = mysqli_query($this->conn, $sql);
-    $count = mysqli_num_rows($result);
-if ($count!=0) {
 
 
 
-    $sql = "UPDATE users SET firstname='$voornaam', lastname='$achternaam', password = '$wachtwoord' ,date_of_birth = '$geboortedatum', phonenumber = '$telefoonnummer',adress='$adres',zipcode='$postcode',city='$stad' WHERE users.email='$email'";
+
+    $sql = "UPDATE users SET firstname='$voornaam', lastname='$achternaam', password = '$wachtwoord' ,date_of_birth = '$geboortedatum', phonenumber = '$telefoonnummer',adress='$adres',zipcode='$postcode',city='$stad' WHERE users.id='$id'";
     if (mysqli_query($this->conn, $sql)) {
         // session_destroy();
         // session_abort();
@@ -79,10 +76,8 @@ if ($count!=0) {
         // $user = new User($this->conn);
 
         // $user->login($email,$wachtwoord);
-
-
-    }
-}
+        echo "succes for ".$id;
+        }
 }
 public function delete($email)
 {

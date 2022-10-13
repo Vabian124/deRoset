@@ -15,18 +15,22 @@ include_once('./verwerk/database.php');
 <body>
     <?php
     if(isset($_SESSION['winkelmandje'])){
-    echo "<br><br>";
+    echo "<br><br><a style=\"background-color:lightcoral; color=white \"href=\"./verwerk/leegwinkelmandje.php\">Leeg winkelmandje</a>       
+    <a style=\"background-color:lightgreen; color=white \"href=\"./bestelling-doorvoeren.php\">Bestelling Afronden</a>
+    
+    
+    ";
     foreach($_SESSION['winkelmandje'] as $item)
     {
         echo "<br><br>";
         var_dump($item);
-        if($item['is_flavor_of_week']=="0"){$is_fow = "No";}else{$is_fow = "Yes";}
+        if($item['is_flavor_of_week']=="0"){$isRecieved = "Nee";}else{$isRecieved = "Ja";}
 
-        echo '<p ">"'.$item['name']." - ".$item['price_per_kg']."/kg - ".$is_fow." - ".$item['category'].'</a><br><a style="background-color:red;" href="./verwerk/leegwinkelmandje.php?id='.$item['id'].'">Verwijder</a><br>';
+        echo '<p ">"'.$item['name']." - €".$item['price_per_kg']."/kg - ".$isRecieved." - ".$item['category'].'</a><br><a style="background-color:red;" href="./verwerk/leegwinkelmandje.php?id='.$item['id'].'">Verwijder</a><br>';
 
         echo "
         <br>
-        <a href=\"./verwerk/leegwinkelmandje.php\">Leeg winkelmandje</a>
+        
         
         
         ";

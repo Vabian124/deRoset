@@ -15,7 +15,14 @@ if (isset($_POST["submit"])) {
         && !empty($_POST["stad"])
     
     ) {
-        //allemaal moeten ze true zijn
+        if(isset($_GET['id'])){
+        $id=$_GET['id'];
+        }
+        else
+        {
+            $id=$_SESSION['user']['id'];
+        }
+        
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
         $email = $_SESSION['user']['email'];
@@ -27,10 +34,8 @@ if (isset($_POST["submit"])) {
         $stad = $_POST["stad"];
         
         $user = new User($conn);
-        $user->update($voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad);
+        $user->update($id,$voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad);
         header('../gebruikeroverzicht.php');
         mysqli_close($conn); // Sluit de database verbinding
-        
-    
     }
     }

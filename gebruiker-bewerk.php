@@ -11,6 +11,7 @@
 include_once('./verwerk/database.php');
 include_once('./classes/user.php');
 
+if(isset($_SESSION['user']['id']))
 $id=$_SESSION['user']['id'];
 $firstname = $_SESSION['user']['firstname'];
 $lastname  = $_SESSION['user']['lastname'];
@@ -55,7 +56,7 @@ if(!isset($_SESSION['uid']))
         <div class="side"> 
             <div class="grid">
                     <div class="form">
-                    <form action="verwerk/gebruiker-bewerk.php" method="post">
+                    <form action="verwerk/gebruiker-bewerk.php?id=<?php echo $id?>" method="post">
     <div class="form-group">
         <label for="voornaam">Voornaam</label>
         <input type="text" name="voornaam" id="voornaam" value='<?php echo $firstname?>'>

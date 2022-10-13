@@ -25,13 +25,12 @@ class Order
         $sql = "SELECT * FROM `orders`";
         return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
     }
-    public function create($name,$user_id,$product_id,$pickup,$delivery,$isRecieved)
+    public function create($user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city)
     {
-        $sql = "INSERT INTO  orders SET name='$name', user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved'";
-        if (mysqli_query($this->conn, $sql)) {
-            header("location: ../index.php");}
+        $sql = "INSERT INTO  orders SET  user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city'";
+        if (mysqli_query($this->conn, $sql)) {echo "succes";}
     }
-    public function update($id,$name,$user_id,$product_id,$pickup,$delivery,$isRecieved)
+    public function update($id,$user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city)
     {
         $sql = "select * from orders where id = '$id'";
         $result = mysqli_query($this->conn, $sql);
@@ -40,7 +39,7 @@ class Order
     
     
     
-        $sql = "UPDATE orders SET name='$name', user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery', isRecieved='$isRecieved' WHERE orders.id='$id'";
+        $sql = "UPDATE orders SET user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery', isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city' WHERE orders.id='$id'";
         if (mysqli_query($this->conn, $sql)) {
             echo "succes";
     
@@ -51,7 +50,7 @@ class Order
     {
         $sql = "DELETE FROM orders WHERE orders.id ='$id'";
         if (mysqli_query($this->conn, $sql)) {
-            header("location: ./index.php");
+            header("location: ../index.php");
         }
     }
 }
