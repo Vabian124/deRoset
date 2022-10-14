@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +9,15 @@
     <title>Document</title>
 </head>
 <?php include('./blocks/header.php'); ?>
+
 <body>
     <div class="container">
         <div class="body">
             <div class="banner">
-            
+
             </div>
         </div>
     </div>
 </body>
+
 </html>

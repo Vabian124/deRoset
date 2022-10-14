@@ -3,22 +3,23 @@
 
 ?>
 <style>
-.column {
-  float: left;
-  width: 10%;
-  outline: auto;
-  margin-bottom: 1%;
-}
-.column a{
-    font-size: large;
-}
+  .column {
+    float: left;
+    width: 10%;
+    outline: auto;
+    margin-bottom: 1%;
+  }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  .column a {
+    font-size: large;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 </style>
 
 <div class="row">
@@ -32,5 +33,5 @@
   <div class="column"><a href="./gebruiker-verwijder.php">Gebruiker verwijder</a></div>
   <div class="column"><a href="./bestellen.php">Bestellen</a></div>
   <div class="column"><a href="./winkelmandje.php">winkelmandje</a></div>
-  
+
 </div>

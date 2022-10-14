@@ -1,5 +1,5 @@
-<?php 
-include ('../blocks/header.php');
+<?php
+include('../blocks/header.php');
 include_once('./database.php');
 include_once('../classes/user.php');
 
@@ -13,16 +13,14 @@ if (isset($_POST["submit"])) {
         && !empty($_POST["adres"])
         && !empty($_POST["postcode"])
         && !empty($_POST["stad"])
-    
+
     ) {
-        if(isset($_GET['id'])){
-        $id=$_GET['id'];
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = $_SESSION['user']['id'];
         }
-        else
-        {
-            $id=$_SESSION['user']['id'];
-        }
-        
+
         $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
         $email = $_SESSION['user']['email'];
@@ -32,10 +30,10 @@ if (isset($_POST["submit"])) {
         $adres = $_POST["adres"];
         $postcode = $_POST["postcode"];
         $stad = $_POST["stad"];
-        
+
         $user = new User($conn);
-        $user->update($id,$voornaam,$achternaam,$email,$wachtwoord,$telefoonnummer,$geboortedatum,$adres,$postcode,$stad);
+        $user->update($id, $voornaam, $achternaam, $email, $wachtwoord, $telefoonnummer, $geboortedatum, $adres, $postcode, $stad);
         header('../gebruikeroverzicht.php');
         mysqli_close($conn); // Sluit de database verbinding
     }
-    }
+}

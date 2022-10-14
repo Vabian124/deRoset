@@ -1,6 +1,6 @@
 <?php
 
-include ('./blocks/header.php');
+include('./blocks/header.php');
 include_once('./verwerk/database.php');
 include_once('./classes/order.php');
 $id = $_GET['id'];

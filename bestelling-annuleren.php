@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,26 +14,31 @@ include_once('./classes/order.php');
 include_once('./classes/product.php');
 include_once('./verwerk/session.php');
 $orders = new Order($conn);
-$allOrders= $orders->getAllByUserId($_SESSION['user']['id']);
+$allOrders = $orders->getAllByUserId($_SESSION['user']['id']);
 $products = new Product($conn);
 $allProducts = $products->getAll();
 
 ?>
 <br>
+
 <body>
     <?php
-    foreach($allOrders as $order)
-    {
-        $id=$order['product_id'];
+    foreach ($allOrders as $order) {
+        $id = $order['product_id'];
         $product = $products->getById($id);
 
-        if($order['isRecieved']=="0"){$isRecieved = "No";}else{$isRecieved = "Yes";}
+        if ($order['isRecieved'] == "0") {
+            $isRecieved = "No";
+        } else {
+            $isRecieved = "Yes";
+        }
 
-        echo '<a href="./bestelling-detail.php?id='.$id.'">'.
-        " - ".$product['price_per_kg']."/kg - ".$isRecieved." - ".$product['category'].
-        '</a><br><a style="background-color:red;" href="./Bestelling-verwijder.php?id='.$order['id'].'">Annuleer</a><br>';
+        echo '<a href="./bestelling-detail.php?id=' . $id . '">' .
+            " - " . $product['price_per_kg'] . "/kg - " . $isRecieved . " - " . $product['category'] .
+            '</a><br><a style="background-color:red;" href="./Bestelling-verwijder.php?id=' . $order['id'] . '">Annuleer</a><br>';
     }
     ?>
     </div>
 </body>
+
 </html>
