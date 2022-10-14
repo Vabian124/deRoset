@@ -25,6 +25,11 @@ class Order
         $sql = "SELECT * FROM `orders`";
         return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
     }
+    public function getAllByUserId($id)
+    {
+        $sql = "SELECT * FROM `orders` where user_id = '$id'";
+        return mysqli_fetch_all($this->query($sql),MYSQLI_ASSOC);
+    }
     public function create($user_id,$product_id,$pickup,$delivery,$isRecieved,$zipcode,$adress,$city,$name)
     {
         $sql = "INSERT INTO  orders SET  user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',name='$name'";

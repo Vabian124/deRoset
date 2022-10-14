@@ -47,7 +47,7 @@ include('./blocks/header.php');
         </label>
         <select class="form-control" name="wayOfRecieving">
             <option value="pickup" selected="true">Afhalen</option>
-            <option value="delivery" >Bezorgen</option>
+            <option value="delivery" >Bezorgen +€4,95</option>
         </select>
     </div>
     <div class="">

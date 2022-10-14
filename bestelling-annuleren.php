@@ -13,7 +13,7 @@ include_once('./classes/order.php');
 include_once('./classes/product.php');
 include_once('./verwerk/session.php');
 $orders = new Order($conn);
-$allOrders= $orders->getAll();
+$allOrders= $orders->getAllByUserId($_SESSION['user']['id']);
 $products = new Product($conn);
 $allProducts = $products->getAll();
 
