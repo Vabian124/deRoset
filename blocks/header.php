@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <style>
 .column {
   float: left;
@@ -15,12 +19,8 @@
   display: table;
   clear: both;
 }
-<?php
-include_once('./verwerk/session.php');
-include_once('./verwerk/database.php');
-include_once('../class/user.php');
-?>
 </style>
+
 <div class="row">
   <div class="column"><a href="./register.php">Register</a></div>
   <div class="column"><a href="./login.php">Login</a></div>
