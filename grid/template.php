@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <?php
@@ -16,120 +16,13 @@ $products = $products->getAll();
 ?>
 <br>
 <style>
-    .container {
-        display: grid;
-        grid-template-columns: 0.4fr 1.7fr 1fr;
-        grid-template-rows: 0.4fr 1.8fr 0.8fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "Logo main main"
-            "sidebar main main"
-            "Footer Footer Footer";
-    }
 
-    .Logo {
-        display: grid;
-        grid-template-columns: 0.3fr 2.4fr 0.3fr;
-        grid-template-rows: 0.3fr 2.2fr 0.5fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ". . ."
-            ". img ."
-            ". imgText .";
-        grid-area: Logo;
-    }
-
-    .img {
-        grid-area: img;
-    }
-
-    .imgText {
-        grid-area: imgText;
-    }
-
-    .Footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "info bezorggebieden onze-voorwaarden"
-            "info bezorggebieden onze-voorwaarden"
-            "info bezorggebieden onze-voorwaarden";
-        grid-area: Footer;
-    }
-
-    .info {
-        grid-area: info;
-    }
-
-    .bezorggebieden {
-        grid-area: bezorggebieden;
-    }
-
-    .onze-voorwaarden {
-        grid-area: onze-voorwaarden;
-    }
-
-    .sidebar {
-        display: grid;
-        grid-template-columns: 1fr 0.9fr 1.1fr;
-        grid-template-rows: 1.3fr 0.7fr 1fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "smaak-vd-dag smaak-vd-dag smaak-vd-dag"
-            "populaire-smaken populaire-smaken populaire-smaken"
-            "populaire-smaken populaire-smaken populaire-smaken";
-        grid-area: sidebar;
-    }
-
-    .smaak-vd-dag {
-        display: grid;
-        grid-template-columns: 0.3fr 2.4fr 0.3fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ". svdd ."
-            ". imgsvdd ."
-            ". bestel .";
-        grid-area: smaak-vd-dag;
-    }
-
-    .svdd {
-        grid-area: svdd;
-    }
-
-    .imgsvdd {
-        grid-area: imgsvdd;
-    }
-
-    .bestel {
-        grid-area: bestel;
-    }
-
-    .populaire-smaken {
-        display: grid;
-        grid-template-columns: 0.3fr 2.4fr 0.3fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ". textpopsmaken ."
-            ". popsmaken ."
-            ". popsmaken .";
-        grid-area: populaire-smaken;
-    }
 
     .popsmaken {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        gap: 0px 0px;
+        gap: 1% 1%;
         grid-auto-flow: row;
         grid-template-areas:
             "imgpops1 imgpops1 imgpops1"
@@ -158,19 +51,25 @@ $products = $products->getAll();
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 0.3fr 1.7fr;
-        gap: 0px 0px;
+        gap: 1% 1%;
         grid-auto-flow: row;
         grid-template-areas:
             "header header header"
             "content content content";
         grid-area: main;
     }
-
+    @media screen and(max-width:1000px)
+    {
+        .container{
+            grid-template-columns: 0fr 1fr 1fr;
+        grid-template-rows: 0.3fr 1.7fr;
+        }
+    }
     .header {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
-        gap: 0px 0px;
+        gap: 1% 1%;
         grid-auto-flow: row;
         grid-template-areas:
             "Over-ons Bestellen Blog Contact Winkelmandje";
@@ -217,7 +116,8 @@ $products = $products->getAll();
     }
 
     .container *:after {
-        content: attr(class);
+        /*content: attr(class);*/
+        font-size: 20px;
         position: absolute;
         top: 0;
         left: 0;
@@ -227,6 +127,7 @@ $products = $products->getAll();
         align-items: center;
         justify-content: center;
     }
+    
 </style>
 
 <body>
@@ -234,13 +135,22 @@ $products = $products->getAll();
 
     <div class="container">
         <div class="Logo">
-            <div class="img"></div>
-            <div class="imgText"></div>
+            <div class="img"><img src="./logo.png" alt="logo" srcset=""></div>
+            <div class="imgText">De Roset</div>
         </div>
         <div class="Footer">
-            <div class="info"></div>
-            <div class="bezorggebieden"></div>
-            <div class="onze-voorwaarden"></div>
+            <div class="info">
+                <p>Ons Adres
+                        Castricumseweg, Castricum<br>
+                        in Castricum 2890<br>
+                        daar<br>
+            </p>
+        </div>
+            <div class="bezorggebieden">
+                Bezorginfo
+            </div>
+            <div class="onze-voorwaarden"> Zie hier onze voorwaarden</div>
+           
         </div>
         <div class="sidebar">
             <div class="smaak-vd-dag">
@@ -259,11 +169,13 @@ $products = $products->getAll();
         </div>
         <div class="main">
             <div class="header">
+
+            
                 <div class="Over-ons"></div>
-                <div class="Bestellen"></div>
+                <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
                 <div class="Blog"></div>
                 <div class="Contact"></div>
-                <div class="Winkelmandje"></div>
+                <div class="Winkelmandje"><a href="./winkelmandje.php">winkelmandje</a></div>
             </div>
             <div class="content"></div>
         </div>

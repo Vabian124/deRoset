@@ -5,13 +5,8 @@ include_once('../classes/product.php');
 
 if (isset($_POST["submit"])) {
 
-    if (
-        !empty($_POST["name"])
-        && !empty($_POST["price_per_kg"])
-        && !empty($_POST["is_flavor_of_week"])
-        && !empty($_POST["category"])
-
-    ) {
+    
+        
 
         //allemaal moeten ze true zijn
         $name = $_POST["name"];
@@ -24,5 +19,5 @@ if (isset($_POST["submit"])) {
         mysqli_close($conn); // Sluit de database verbinding
 
 
-    }
+    
 }
