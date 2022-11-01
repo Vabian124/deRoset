@@ -23,3 +23,6 @@ html .fifthColor{
 .noOutline{
   border: 0px solid black!important;
 }
+.container{
+  border: 0px solid black!important;
+}

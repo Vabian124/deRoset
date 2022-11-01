@@ -60,7 +60,6 @@ $products = $products->getAll();
 }
 
 
-
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -122,7 +121,7 @@ body,
     padding: 2%;
 }
 
-div {
+div{
     border: 3px solid black;
 }
 
@@ -218,7 +217,7 @@ div {
 .sidebar {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr 1.1fr;
-    grid-template-rows: 0.8fr 0.7fr 0.4fr;
+    grid-template-rows: 1.3fr 0.7fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -231,7 +230,7 @@ div {
 .smaak-vd-dag {
     display: grid;
     grid-template-columns: 0.3fr 2.4fr 0.3fr;
-    grid-template-rows: 0.1fr 0.4fr 0.2fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -256,7 +255,7 @@ div {
 .populaire-smaken {
     display: grid;
     grid-template-columns: 0.3fr 2.4fr 0.3fr;
-    grid-template-rows: 0.2fr 0.7fr 0.7fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -283,23 +282,25 @@ div {
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 1fr 1fr 1fr;
+    grid-template-columns: 1.1fr 0.4fr 1.1fr;
+    grid-template-rows: 0.2fr 1fr;
     gap: 5px 5px;
     grid-template-areas:
         "title . Logo2"
-        "text text img"
-        "text2 text2 text2"
-        "img2 text3 text3";
+        "login . register";
 
 }
-
+.login{
+ grid-area: login;
+}
+.register{
+    grid-area: register;
+}
 
 .title {
     grid-area: title;
 }
-
-.Logo2 {
+.Logo2{
     grid-area: Logo2;
     display: none;
 }
@@ -328,37 +329,16 @@ div {
 .text3 {
     grid-area: text3;
 }
-
 p {
-    font-size: 20px;
-}
+        font-size: 20px;
+    }
+    a{
+        border: 0px solid black;
+        text-decoration: none;
+    }
 
-a {
-    border: 0px solid black;
-    text-decoration: none;
-}
-.content {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 0.5fr 0.1fr;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  gap: 5px 5px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "title . Logo2"
-    "form items items "
-    "form leegWinkelmandje bestellen ";
-}
-
-.leegWinkelmandje { grid-area: leegWinkelmandje; }
-
-.bestellen { grid-area: bestellen; }
-
-.items { grid-area: items; }
-
-.form { grid-area: form; }
 @media screen and (max-width: 720px) {
-
+    
 
     .container {
     display: grid;
@@ -386,29 +366,21 @@ a {
     .Logo {
         display: none;
     }
-
     html,
-    body,
-    .container {
-        height: 100%;
-        margin: 0;
-    }
-
-    .Footer {
-        display: none;
-    }
-
-    div {
-        border: 0px solid black;
-    }
-
-    .Logo2 {
-        display: grid;
-    }
-    .content{
-        height:750px;
-    }
-
+body,
+.container {
+    height: 100%;
+    margin: 0;
+}
+.Footer{
+    display:none;
+}
+div{
+    border: 0px solid black;
+}
+.Logo2{
+    display:grid;
+}
 
 }
 </style>
@@ -416,7 +388,7 @@ a {
 <body>
 
 
-    <div class="container fifthColor noOutline">
+    <div class="container fifthColor">
         <div class="Logo fourthColor">
             <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
             <div class="imgText">De Roset</div>
@@ -443,114 +415,108 @@ a {
         </div>
         <div class="main">
             <div class="header fourthColor">
-
-                <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
-                <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
-                <div class="Blog"><a href="./blog.php">Blog</a></div>
-                <div class="Contact"><a href="./contact.php">Contact</a></div>
-                <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
-                <div class="Account"><a href="./account.php">Account</a></div>
-            </div>
-
-
-            <div class="content thirdColor">
-
-                <div class="title thirdColor noOutline">
-                    <h2 class="noOutline thirdColor">Winkelmandje</h2>
-
-                </div>
-
-                <div class="Logo2">
-                    <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
-                </div>
-
-                <div class="leegWinkelmandje"><a style="background-color:lightcoral; color:black "href="./verwerk/leegwinkelmandje.php">Leeg winkelmandje</a>  </div>
-  <div class="bestellen"></div>
-  <div class="items"><?php
-    if (isset($_SESSION['winkelmandje'])) {
-       
-        foreach ($_SESSION['winkelmandje'] as $item) {
-            if ($item['is_flavor_of_week'] == "0") {
-                $isRecieved = "Nee";
-            } else {
-                $isRecieved = "Ja";
-            }
-
-            echo '<p>' . $item['name'] . " - €" . $item['price_per_kg'] . "/kg - " . $isRecieved . " - " . $item['category'] . '<br></a><br><a style="background-color:red;" href="./verwerk/leegwinkelmandje.php?id=' . $item['id'] . '">Verwijder</a><br>';
-
-            echo "
-        <br>
-        
-        
-        
-        ";
-        }
-    } else //als winkelmand leeg is
-    {
-        echo "Winkelmandje is leeg";
-    }
-
-
-    ?></div>
-  <div class="form" id="formBestellen">
-                <form action="./verwerk/bestelling-doorvoeren.php?continue=yes" method="post">
-        <div class="rendered-form">
-            <div class="">
-                <label for=" " class="formitem">Voornaam</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['firstname'] ?>" name="firstname">
-            </div>
-            <div class="">
-                <label for="lastname" class="formitem">Achternaam</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['lastname'] ?>" name="lastname">
-            </div>
-            <div class="">
-                <label for="adress" class="formitem">Adres</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['adress'] ?>" name="adress">
-            </div>
-            <div class="">
-                <label for="zipcode" class="formitem">Postcode</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['zipcode'] ?>" name="zipcode">
-            </div>
-            <div class="">
-            <input type="radio" id="city1" name="city" value="Den Helder">
-  <label for="city1">Den Helder</label><br>
-  <input type="radio" id="city2" name="city" value="Schagen">
-  <label for="city2">Schagen</label><br>  
-  <input type="radio" id="city3" name="city" value="Schoorl">
-  <label for="city3">Schoorl</label>
-            </div>
-            <div class="">
-                <label for="mvv" class="formbuilder-select-label">Manier van verkrijgen
-                    <br>
-                </label>
-                <select class="form-control" name="wayOfRecieving">
-                    <option value="pickup" selected="true">Afhalen</option>
-                    <option value="delivery">Bezorgen +€4,95</option>
-                </select>
-            </div>
-            <div class="">
-                <label for="dateOfRecieving" class="formbuilder-date-label">Datum van bezorgen/afhalen
-                    <br>
-                </label>
-                <input type="date" class="form-control" access="false" value="2023-01-01" name="dateOfRecieving">
-            </div>
-            <div class="">
-                <button type="submit" access="false">Afronden en Betalen
-                    <br>
-                </button>
-            </div>
+            
+            <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
+            <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
+            <div class="Blog"><a href="./blog.php">Blog</a></div>
+            <div class="Contact"><a href="./contact.php">Contact</a></div>
+            <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
+            <div class="Account"><a href="./account.php">Account</a></div>
         </div>
 
-
-
-    </form>
-    </div>
-
+            
+            <div class="content thirdColor">
                 
+                <div class="title thirdColor noOutline">
+                    <h2 class="noOutline thirdColor">Account</h2>
+                    
+                </div>
+                
+                <div class="Logo2">
+                        <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
+                    </div>
+
+                    
+                    <div class="login form ">
+                    <form action="verwerk/login.php" method="post">
+                        <div class="item">
+
+                            <div>
+
+                                <p>Gebruikersnaam:</p>
+                                <input type="text" name="uid">
+
+                            </div>
+                            <div>
+
+                                <p>Wachtwoord:</p>
+                                <input type="password" name="pwd">
+
+                            </div>
+                            <div>
+
+                                <input type="submit" value="Log in">
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="register form ">
+                    <form action="verwerk/register.php" method="post">
+                        <div class="form-group">
+                            <label for="voornaam">Voornaam</label>
+                            <input type="text" name="voornaam" id="voornaam">
+                        </div>
+                        <div class="form-group">
+                            <label for="achternaam">Achternaam</label>
+                            <input type="text" name="achternaam" id="achternaam">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="wachtwoord">Wachtwoord</label>
+                            <input type="text" name="wachtwoord" id="wachtwoord">
+                        </div>
+                        <div class="form-group">
+                            <label for="geboortedatum">Geboortedatum</label>
+                            <input type="date" name="geboortedatum" id="geboortedatum">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefoonnummer">Telefoonnummer</label>
+                            <input type="text" name="telefoonnummer" id="telefoonnummer">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adres">Adres</label>
+                            <input type="text" name="adres" id="adres">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" name="postcode" id="postcode">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stad">Stad</label>
+                            <input type="text" name="stad" id="stad">
+                        </div>
 
 
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" name="submit">Registreer</button>
 
-            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+
+          
+        </div>
         </div>
         <div class="Footer fourthColor">
             <div class="info thirdColor">

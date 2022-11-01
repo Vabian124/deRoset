@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
         $product = new Product($conn);
         $product->update($id, $name, $price_per_kg, $is_flavor_of_week, $category);
         mysqli_close($conn); // Sluit de database verbinding
-
+        header("location: ../item-overzicht.php");
 
     
 }

@@ -5,3 +5,4 @@ include_once('../classes/user.php');
 $user = new User($conn);
 $user->delete($_SESSION['user']['email']);
 mysqli_close($conn); // Sluit de database verbinding
+header("location: ../gebruiker-overzicht.php");

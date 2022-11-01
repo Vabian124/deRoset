@@ -33,6 +33,7 @@ if (isset($_POST["submit"])) {
         $user = new User($conn);
         $user->register($voornaam, $achternaam, $email, $wachtwoord, $telefoonnummer, $geboortedatum, $adres, $postcode, $stad, $rol);
         mysqli_close($conn); // Sluit de database verbinding
+        header("location: ../gebruiker-overzicht.php");
 
     }
 }

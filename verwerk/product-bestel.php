@@ -9,9 +9,8 @@ $id = $_GET['id'];
 $name = $_GET['name'];
 $product = new Product($conn);
 $idProducts = $product->getById($id);
-var_dump($id, $name);
 $_SESSION['winkelmandje'][$id] = $idProducts;
-header('../bestellen.php');
+header("location: ../bestellen.php");
 
 
 

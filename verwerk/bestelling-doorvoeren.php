@@ -5,6 +5,7 @@ include_once('./session.php');
 include('../blocks/header.php');
 
 if (isset($_GET['continue'])) {
+    
     $databaseConnection = new Database();
     $conn = $databaseConnection->getConnection();
     $order = new Order($conn);
@@ -43,7 +44,7 @@ if (isset($_GET['continue'])) {
     mysqli_close($conn);
     unset($_SESSION['winkelmandje']);
     if (!isset($_SESSION['winkelmandje'])) {
-        header('../bestelling-afgerond');
+        header("location: ../bestelling-afgerond.php");
     }
 } else {
 

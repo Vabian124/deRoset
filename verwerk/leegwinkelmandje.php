@@ -7,3 +7,4 @@ if (isset($_GET['id'])) {
 } else {
     unset($_SESSION['winkelmandje']);
 }
+header("location: ../winkelmandje.php");

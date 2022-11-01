@@ -60,27 +60,18 @@ $products = $products->getAll();
 }
 
 
-
 .header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
-        "Over-ons Bestellen Blog Contact Winkelmandje";
+        "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-
-.header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 1% 1%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "Over-ons Bestellen Blog Contact Winkelmandje";
-    grid-area: header;
+.Account{
+    grid-area: Account;
 }
 
 .Over-ons {
@@ -318,8 +309,10 @@ div{
 
 }
 
-.img {
+.sidebar .img {
     grid-area: img;
+    width:100%;
+    border-radius: 50%;
 }
 
 .text2 {
@@ -343,21 +336,17 @@ p {
 
 @media screen and (max-width: 720px) {
     
-
     .container {
-        font-size: 20px;
-        display: grid;
-        grid-template-columns: 0fr 0.6fr 1.7fr 1fr 0fr;
-        grid-template-rows: 0.4fr 1.8fr 0.4fr;
-        gap: 1% 3%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ".  main main main ."
-            ". main main main ."
-            ". Footer Footer Footer .";
-
-
-    }
+    display: grid;
+    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+    grid-template-rows: 0.4fr 1.8fr 0fr;
+    gap: 1% 3%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". Logo main main ."
+        ". sidebar main main ."
+        ". Footer Footer Footer .";
+}
 
 
     .sidebar {
@@ -388,6 +377,10 @@ div{
 .Logo2{
     display:grid;
 }
+.content > img{
+        height:100px;
+        width:100px;
+    }
 
 }
 </style>
@@ -403,18 +396,18 @@ div{
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor">Dit is de svdd</div>
-                <div class="imgsvdd fourthColor">img</div>
-                <div class="bestel fourthColor"><button>Bestel</button></div>
+                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
+                <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>
             <div class="populaire-smaken thirdColor">
                 <div class="textpopsmaken fourthColor">
-                    Dit zijn de popu smaku
+                    <p>Populaire smaken</p>
                 </div>
                 <div class="popsmaken thirdColor noOutline">
-                    <div class="imgpops1 fourthColor">Framboos</div>
-                    <div class="imgpops2 fourthColor">Framboos</div>
-                    <div class="imgpops3 fourthColor">Framboos</div>
+                    <div class="imgpops1 fourthColor"><img class="img" src="./img/22.jpg"></div>
+                    <div class="imgpops2 fourthColor"><img class="img" src="./img/22.jpg"></div>
+                    <div class="imgpops3 fourthColor"><img class="img" src="./img/22.jpg"></div>
 
                 </div>
 
@@ -428,6 +421,7 @@ div{
             <div class="Blog"><a href="./blog.php">Blog</a></div>
             <div class="Contact"><a href="./contact.php">Contact</a></div>
             <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
+            <div class="Account"><a href="./account.php">Account</a></div>
         </div>
 
             

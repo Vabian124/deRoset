@@ -1,5 +1,5 @@
 <?php
-//require_once('../verwerk/database.php');
+require_once('../verwerk/session.php');
 
 class User
 {

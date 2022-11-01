@@ -7,3 +7,4 @@ $conn = $databaseConnection->getConnection();
 $user = new User($conn);
 
 $user->login($_POST['uid'], $_POST['pwd']);
+header("location: ../bestellen.php");

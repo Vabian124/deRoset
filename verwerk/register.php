@@ -35,4 +35,5 @@ if (isset($_POST["submit"])) {
         mysqli_close($conn); // Sluit de database verbinding
 
     }
+    header("location: ../over-ons.php");
 }
