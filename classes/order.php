@@ -29,12 +29,12 @@ class Order
         $sql = "SELECT * FROM `orders` where user_id = '$id'";
         return mysqli_fetch_all($this->query($sql), MYSQLI_ASSOC);
     }
-    public function create($user_id, $product_id, $pickup, $delivery, $isRecieved, $zipcode, $adress, $city, $name)
+    public function create($user_id, $product_id, $pickup, $delivery, $isRecieved, $zipcode, $adress, $city, $amount_of_kg)
     {
-        $sql = "INSERT INTO  orders SET  user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',name='$name'";
+        $sql = "INSERT INTO  orders SET  user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery',isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',amount_of_kg='$amount_of_kg'";
         mysqli_query($this->conn, $sql);
     }
-    public function update($id, $user_id, $product_id, $pickup, $delivery, $isRecieved, $zipcode, $adress, $city, $name)
+    public function update($id, $user_id, $product_id, $pickup, $delivery, $isRecieved, $zipcode, $adress, $city, $amount_of_kg)
     {
         $sql = "select * from orders where id = '$id'";
         $result = mysqli_query($this->conn, $sql);
@@ -43,7 +43,7 @@ class Order
 
 
 
-            $sql = "UPDATE orders SET user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery', isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',name='$name' WHERE orders.id='$id'";
+            $sql = "UPDATE orders SET user_id='$user_id', product_id = '$product_id' ,pickup = '$pickup', delivery='$delivery', isRecieved='$isRecieved',zipcode='$zipcode',adress='$adress',city='$city',amount_of_kg='$amount_of_kg' WHERE orders.id='$id'";
             if (mysqli_query($this->conn, $sql)) {
                 echo "succes";
             }

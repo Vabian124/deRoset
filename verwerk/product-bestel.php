@@ -11,7 +11,6 @@ $product = new Product($conn);
 $idProducts = $product->getById($id);
 var_dump($id, $name);
 $_SESSION['winkelmandje'][$id] = $idProducts;
-var_dump($_SESSION['winkelmandje']);
 header('../bestellen.php');
 
 

@@ -50,7 +50,7 @@ $products = $products->getAll();
 .main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.3fr 1.7fr;
+    grid-template-rows: 0.1fr 1.7fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -59,12 +59,7 @@ $products = $products->getAll();
     grid-area: main;
 }
 
-@media screen and(max-width:1000px) {
-    .container {
-        grid-template-columns: 0fr 1fr 1fr;
-        grid-template-rows: 0.3fr 1.7fr;
-    }
-}
+
 
 .header {
     display: grid;
@@ -113,14 +108,12 @@ $products = $products->getAll();
 
 }
 
-.smaak-vd-dag>div {
-
-}
+.smaak-vd-dag>div {}
 
 html,
 body,
 .container {
-    height: 100%;
+    height: 125%;
     margin: 0;
 }
 
@@ -128,15 +121,22 @@ body,
     text-align: center;
 }
 
-/* For presentation only, no need to copy the code below */
+
 
 .container * {
-    border: 1px solid red;
     position: relative;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    padding: 2%;
 }
 
+div{
+    border: 3px solid black;
+}
+
+
 .container *:after {
-    font-size: 20px;
+    font-size: 10px;
     position: absolute;
     top: 0;
     left: 0;
@@ -189,12 +189,10 @@ body,
 .Footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
-        "info bezorggebieden onze-voorwaarden"
-        "info bezorggebieden onze-voorwaarden"
         "info bezorggebieden onze-voorwaarden";
     grid-area: Footer;
 }
@@ -227,7 +225,7 @@ body,
 
 .sidebar {
     display: grid;
-    grid-template-columns: 1fr 0.9fr 1.1fr;
+    grid-template-columns: 1.1fr 0.9fr 1.1fr;
     grid-template-rows: 1.3fr 0.7fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
@@ -266,7 +264,7 @@ body,
 .populaire-smaken {
     display: grid;
     grid-template-columns: 0.3fr 2.4fr 0.3fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -287,98 +285,195 @@ body,
 .imgL {
     align-self: left;
 }
+
 .content {
-    display: grid; 
-  grid-auto-columns: 1fr; 
-  grid-auto-rows: 1fr; 
-  grid-template-columns: 1.3fr 0.4fr 1.3fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr; 
-  gap: 5px 5px; 
-  grid-template-areas: 
-  "title title title" 
-    "text text img"
-    "text2 text2 text2"
-    "img2 text3 text3";
+    border: 3px solid black;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1.1fr 0.4fr 1.1fr;
+    grid-template-rows: 0.2fr 1fr 1fr 1fr;
+    gap: 5px 5px;
+    grid-template-areas:
+        "title . Logo2"
+        "text text img"
+        "text2 text2 text2"
+        "img2 text3 text3";
 
 }
-.title { grid-area: title; }
-.text { grid-area: text; }
-.img { grid-area: img; }
-.text2 { grid-area: text2; }
-.img2 { grid-area: img2; }
-.text3 { grid-area: text3; }
+
+
+.title {
+    grid-area: title;
+}
+.Logo2{
+    grid-area: Logo2;
+    display: none;
+}
+
+.pageTitle {}
+
+.text {
+    grid-area: text;
+
+}
+
+.img {
+    grid-area: img;
+}
+
+.text2 {
+    grid-area: text2;
+}
+
+.img2 {
+    grid-area: img2;
+}
+
+.text3 {
+    grid-area: text3;
+}
+p {
+        font-size: 20px;
+    }
+    a{
+        border: 0px solid black;
+        text-decoration: none;
+    }
+
+@media screen and (max-width: 720px) {
+    
+
+    .container {
+        font-size: 20px;
+        display: grid;
+        grid-template-columns: 0fr 0.6fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0.4fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ".  main main main ."
+            ". main main main ."
+            ". Footer Footer Footer .";
+
+
+    }
+
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        grid-template-areas:
+            "content content content"
+            "header header header";
+    }
+
+    .Logo {
+        display: none;
+    }
+    html,
+body,
+.container {
+    height: 100%;
+    margin: 0;
+}
+.Footer{
+    display:none;
+}
+div{
+    border: 0px solid black;
+}
+.Logo2{
+    display:grid;
+}
+
+}
 </style>
 
 <body>
 
 
-    <div class="container">
-        <div class="Logo">
-            <div class="img"><img src="./logo.png" alt="logo" srcset=""></div>
+    <div class="container fifthColor">
+        <div class="Logo fourthColor">
+            <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
             <div class="imgText">De Roset</div>
         </div>
 
-        <div class="sidebar">
-            <div class="smaak-vd-dag">
-                <div class="svdd">Dit is de svdd</div>
-                <div class="imgsvdd">img</div>
-                <div class="bestel"><button>Bestel</button></div>
+        <div class="sidebar fourthColor">
+            <div class="smaak-vd-dag thirdColor">
+                <div class="svdd fourthColor">Dit is de svdd</div>
+                <div class="imgsvdd fourthColor">img</div>
+                <div class="bestel fourthColor"><button>Bestel</button></div>
             </div>
-            <div class="populaire-smaken">
-                <div class="textpopsmaken">
+            <div class="populaire-smaken thirdColor">
+                <div class="textpopsmaken fourthColor">
                     Dit zijn de popu smaku
                 </div>
-                <div class="popsmaken">
-                    <div class="imgpops1">Framboos</div>
-                    <div class="imgpops2">Framboos</div>
-                    <div class="imgpops3">Framboos</div>
+                <div class="popsmaken thirdColor noOutline">
+                    <div class="imgpops1 fourthColor">Framboos</div>
+                    <div class="imgpops2 fourthColor">Framboos</div>
+                    <div class="imgpops3 fourthColor">Framboos</div>
 
                 </div>
 
             </div>
         </div>
         <div class="main">
-            <div class="header">
-
-
-
-
-
-                <div class="Over-ons"></div>
-                <div class="Bestellen"></div>
-                <div class="Blog"></div>
-                <div class="Contact"></div>
-                <div class="Winkelmandje"></div>
-            </div>
-            <div class="content">
-                <h2>
-                    Over ons
-                </h2>
-                <div class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, consectetur magni! In quibusdam officiis sapiente obcaecati dicta eius rerum quasi suscipit aut. Quo recusandae fugit dolores inventore cum dolorum ipsa.</div>
-                <div class="img"></div>
-                <div class="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint soluta at molestiae nostrum doloribus tempora? Accusamus, laboriosam enim ullam error maxime labore illum at quas laborum, impedit tempore repudiandae?</div>
-                <div class="img2"></div>
-                <div class="text3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam esse voluptatem exercitationem, laborum, enim rem eaque, laboriosam dolorem ipsam inventore nisi officia culpa voluptates! Culpa itaque ut perferendis ipsa nobis.</div>
-
-
-            </div>
+            <div class="header fourthColor">
+            
+            <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
+            <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
+            <div class="Blog"><a href="./blog.php">Blog</a></div>
+            <div class="Contact"><a href="./contact.php">Contact</a></div>
+            <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
         </div>
-        <div class="Footer">
-            <div class="info">
+
+            
+            <div class="content thirdColor">
+                
+                <div class="title thirdColor noOutline">
+                    <h2 class="noOutline thirdColor">Over ons</h2>
+                    
+                </div>
+                
+                <div class="Logo2">
+                        <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
+                    </div>
+                    
+                <div class="text"><p class="noOutline">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, consectetur magni!
+                    In quibusdam officiis sapiente obcaecati dicta eius rerum quasi suscipit aut. Quo recusandae fugit
+                    dolores inventore cum dolorum ipsa.</p></div>
+                <div class="img"></div>
+                <div class="text2"><p class="noOutline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint soluta at
+                    molestiae nostrum doloribus tempora? Accusamus, laboriosam enim ullam error maxime labore illum at
+                    quas laborum, impedit tempore repudiandae?</p></div>
+                <div class="img2"></div>
+                <div class="text3"><p class="noOutline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam esse voluptatem
+                    exercitationem, laborum, enim rem eaque, laboriosam dolorem ipsam inventore nisi officia culpa
+                    voluptates! Culpa itaque ut perferendis ipsa nobis.</p></div>
+
+
+          
+        </div>
+        </div>
+        <div class="Footer fourthColor">
+            <div class="info thirdColor">
                 <p>Ons Adres
                     Castricumseweg, Castricum<br>
                     in Castricum 2890<br>
                     daar<br>
                 </p>
             </div>
-            <div class="bezorggebieden">
+            <div class="bezorggebieden thirdColor">
                 <p>we bezorgen in<br>
                     den helder<br>
                     schagen<br>
                     schoorl
                 </p>
             </div>
-            <div class="onze-voorwaarden">
+            <div class="onze-voorwaarden thirdColor">
                 <p>Onze Voorwaarden<br>
                     hoge bezorgkosten<br>
                     privayverkklaring<br>

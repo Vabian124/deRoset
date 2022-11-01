@@ -1,21 +1,25 @@
+
 html{
-  background: #2FBF71;
-}
-.content>div{
-  background: #8CD867;
+  background: #363537;
+  height: 200vh;
 }
 .mainColor{
-  background-color: ;
+
 }
 .secondaryColor{
+  background: #8CD867;
 
 }
 .thirdColor{
-
+  background: #ED7D3A;
 }
-.forthColor{
-
+.fourthColor{
+  background: #EF2D56;
 }
-.fifthColor{
+html .fifthColor{
+  background: #363537;
+}
 
+.noOutline{
+  border: 0px solid black!important;
 }

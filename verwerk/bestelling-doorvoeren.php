@@ -26,7 +26,7 @@ if (isset($_GET['continue'])) {
         $zipcode = $_POST['zipcode'];
         $adress = $_POST['adress'];
         $city = $_POST['city'];
-        $name = $_POST['firstname'] . " " . $_POST['lastname'];
+        $amount_of_kg = 1;
 
         $order->create(
             $user_id,
@@ -37,7 +37,7 @@ if (isset($_GET['continue'])) {
             $zipcode,
             $adress,
             $city,
-            $name
+            $amount_of_kg
         );
     }
     mysqli_close($conn);

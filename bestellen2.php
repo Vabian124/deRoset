@@ -59,7 +59,12 @@ $products = $products->getAll();
     grid-area: main;
 }
 
-
+@media screen and(max-width:1000px) {
+    .container {
+        grid-template-columns: 0fr 1fr 1fr;
+        grid-template-rows: 0.3fr 1.7fr;
+    }
+}
 
 .header {
     display: grid;
@@ -108,7 +113,9 @@ $products = $products->getAll();
 
 }
 
-.smaak-vd-dag>div {}
+.smaak-vd-dag>div {
+
+}
 
 html,
 body,
@@ -121,22 +128,19 @@ body,
     text-align: center;
 }
 
-
+/* For presentation only, no need to copy the code below */
 
 .container * {
+    border: 3px solid black;
     position: relative;
     border-radius: 15px;
-    -moz-border-radius: 15px;
-    padding: 2%;
-}
-
-div{
-    border: 3px solid black;
+  -moz-border-radius: 15px;
+  padding: 2%;
 }
 
 
 .container *:after {
-    font-size: 10px;
+    font-size: 20px;
     position: absolute;
     top: 0;
     left: 0;
@@ -189,10 +193,12 @@ div{
 .Footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
+        "info bezorggebieden onze-voorwaarden"
+        "info bezorggebieden onze-voorwaarden"
         "info bezorggebieden onze-voorwaarden";
     grid-area: Footer;
 }
@@ -285,132 +291,28 @@ div{
 .imgL {
     align-self: left;
 }
-
 .content {
-    border: 3px solid black;
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    grid-template-columns: 0.4fr 0.4fr 0.4fr 0.4fr 0.4fr;
-    grid-template-rows: 0.2fr 2fr;
-    gap: 5px 5px;
-    grid-template-areas:
-        "title  . . Logo2 Logo2"
-        "items items items items items";
 
+    display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-auto-rows: 1fr; 
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+  gap: 5px 5px; 
+  grid-template-areas: 
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."
+    ". . . . ."; 
 }
 
-
-.title {
-    grid-area: title;
-}
-.Logo2{
-    grid-area: Logo2;
-    display: none;
-}
-
-.pageTitle {}
-
-.text {
-    grid-area: text;
-
-}
-
-.img {
-    grid-area: img;
-}
-
-.text2 {
-    grid-area: text2;
-}
-
-.img2 {
-    grid-area: img2;
-}
-
-.text3 {
-    grid-area: text3;
-}
-p {
-        font-size: 20px;
-    }
-    a{
-        border: 0px solid black;
-        text-decoration: none;
-        color: black;
-    }
-    img{
-        width: 93%;
-        
-    }
-    .items{
-        display: grid;
-    grid-template-columns: 17% 17% 17% 17% 17% ;
-    grid-template-rows:17% 17% 17% 17% 17% ;
-    gap: 2% 3.5%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "item item item item item"
-        "item item item item item"
-        "item item item item item";
-        grid-area: items;
-    }
-    img {
-  
-}
-div.items div.item a img.img{
-    border-radius: 50%;
-}
-
-
-@media screen and (max-width: 720px) {
-
-
-    .container {
-        font-size: 20px;
-        display: grid;
-        grid-template-columns: 0fr 0.6fr 1.7fr 1fr 0fr;
-        grid-template-rows: 0.4fr 1.8fr 0.4fr;
-        gap: 1% 3%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ".  main main main ."
-            ". main main main ."
-            ". Footer Footer Footer .";
-
-
-    }
-
-
-    .sidebar {
-        display: none;
-    }
-
-    .main {
-        grid-template-areas:
-            "content content content"
-            "header header header";
-    }
-
-    .Logo {
-        display: none;
-    }
-    html,
-body,
-.container {
-    height: 100%;
-    margin: 0;
-}
-.Footer{
-    display:none;
-}
-div{
-    border: 0px solid black;
-}
-.Logo2{
-    display:grid;
-}
-}
+.title { grid-area: title; }
+.text { grid-area: text; }
+.img { grid-area: img; }
+.text2 { grid-area: text2; }
+.img2 { grid-area: img2; }
+.text3 { grid-area: text3; }
 </style>
 
 <body>
@@ -418,7 +320,7 @@ div{
 
     <div class="container fifthColor">
         <div class="Logo fourthColor">
-            <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
+            <div class="img"><img src="./logo.png" alt="logo" srcset=""></div>
             <div class="imgText">De Roset</div>
         </div>
 
@@ -442,47 +344,25 @@ div{
             </div>
         </div>
         <div class="main">
-            
             <div class="header fourthColor">
-            
 
 
 
 
-                <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
-                <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
-                <div class="Blog"><a href="./blog.php">Blog</a></div>
-                <div class="Contact"><a href="./contact.php">Contact</a></div>
-                <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
+
+                <div class="Over-ons"></div>
+                <div class="Bestellen"></div>
+                <div class="Blog"></div>
+                <div class="Contact"></div>
+                <div class="Winkelmandje"></div>
             </div>
             <div class="content thirdColor">
-                
-                <div class="title thirdColor noOutline">
-                    <h2 class="noOutline thirdColor">Bestellen</h2>
-                    
-                </div>
-                
-                <div class="Logo2">
-                        <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
-                    </div>
-                    <div class="items">
-                    <?php
+                <h2 class="secondaryColor noOutline">
+                    Bestellen
+                </h2>
 
-            foreach ($products as $product) {
 
-                echo '<div class=item>
-                <a href="./verwerk/product-bestel.php?id='
-                    . $product['id'] . "&name=" . $product['name'] . '"><img class="img" src="./img/'.$product['id'].'.jpg"><p>'.$product['name'].'</p></a>
-                        </div>
-                        ';
-            }
-            ?>
-            
             </div>
-            </div>
-
-            
-            
         </div>
         <div class="Footer fourthColor">
             <div class="info thirdColor">
