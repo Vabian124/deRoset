@@ -288,26 +288,45 @@ body,
 .imgL {
     align-self: left;
 }
+
 .content {
-    display: grid; 
-  grid-auto-columns: 1fr; 
-  grid-auto-rows: 1fr; 
-  grid-template-columns: 1.3fr 0.4fr 1.3fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr; 
-  gap: 5px 5px; 
-  grid-template-areas: 
-  "title title title" 
-    "text text img"
-    "text2 text2 text2"
-    "img2 text3 text3";
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1.3fr 0.4fr 1.3fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 5px 5px;
+    grid-template-areas:
+        "title title title"
+        "text text img"
+        "text2 text2 text2"
+        "img2 text3 text3";
 
 }
-.title { grid-area: title; }
-.text { grid-area: text; }
-.img { grid-area: img; }
-.text2 { grid-area: text2; }
-.img2 { grid-area: img2; }
-.text3 { grid-area: text3; }
+
+.title {
+    grid-area: title;
+}
+
+.text {
+    grid-area: text;
+}
+
+.img {
+    grid-area: img;
+}
+
+.text2 {
+    grid-area: text2;
+}
+
+.img2 {
+    grid-area: img2;
+}
+
+.text3 {
+    grid-area: text3;
+}
 </style>
 
 <body>
@@ -355,11 +374,17 @@ body,
                 <h2>
                     Over ons
                 </h2>
-                <div class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, consectetur magni! In quibusdam officiis sapiente obcaecati dicta eius rerum quasi suscipit aut. Quo recusandae fugit dolores inventore cum dolorum ipsa.</div>
+                <div class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, consectetur magni!
+                    In quibusdam officiis sapiente obcaecati dicta eius rerum quasi suscipit aut. Quo recusandae fugit
+                    dolores inventore cum dolorum ipsa.</div>
                 <div class="img"></div>
-                <div class="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint soluta at molestiae nostrum doloribus tempora? Accusamus, laboriosam enim ullam error maxime labore illum at quas laborum, impedit tempore repudiandae?</div>
+                <div class="text2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint soluta at
+                    molestiae nostrum doloribus tempora? Accusamus, laboriosam enim ullam error maxime labore illum at
+                    quas laborum, impedit tempore repudiandae?</div>
                 <div class="img2"></div>
-                <div class="text3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam esse voluptatem exercitationem, laborum, enim rem eaque, laboriosam dolorem ipsam inventore nisi officia culpa voluptates! Culpa itaque ut perferendis ipsa nobis.</div>
+                <div class="text3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam esse voluptatem
+                    exercitationem, laborum, enim rem eaque, laboriosam dolorem ipsam inventore nisi officia culpa
+                    voluptates! Culpa itaque ut perferendis ipsa nobis.</div>
 
 
             </div>

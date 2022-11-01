@@ -71,7 +71,8 @@ $products = $products->getAll();
         "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-.Account{
+
+.Account {
     grid-area: Account;
 }
 
@@ -313,7 +314,7 @@ div {
 
 .sidebar .img {
     grid-area: img;
-    width:100%;
+    width: 100%;
     border-radius: 50%;
 }
 
@@ -337,40 +338,51 @@ a {
     border: 0px solid black;
     text-decoration: none;
 }
-.content {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.1fr 0.5fr 0.1fr;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  gap: 5px 5px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "title . Logo2"
-    "form items items "
-    "form leegWinkelmandje bestellen ";
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 0.5fr 0.1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "title . Logo2"
+        "form items items "
+        "form leegWinkelmandje bestellen ";
 }
 
-.leegWinkelmandje { grid-area: leegWinkelmandje; }
+.leegWinkelmandje {
+    grid-area: leegWinkelmandje;
+}
 
-.bestellen { grid-area: bestellen; }
+.bestellen {
+    grid-area: bestellen;
+}
 
-.items { grid-area: items; }
+.items {
+    grid-area: items;
+}
 
-.form { grid-area: form; }
+.form {
+    grid-area: form;
+}
+
 @media screen and (max-width: 720px) {
 
 
     .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
-    grid-template-rows: 0.4fr 1.8fr 0fr;
-    gap: 1% 3%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        ". Logo main main ."
-        ". sidebar main main ."
-        ". Footer Footer Footer .";
-}
+        display: grid;
+        grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". Logo main main ."
+            ". sidebar main main ."
+            ". Footer Footer Footer .";
+    }
 
 
     .sidebar {
@@ -405,8 +417,9 @@ a {
     .Logo2 {
         display: grid;
     }
-    .content{
-        height:750px;
+
+    .content {
+        height: 750px;
     }
 
 
@@ -424,7 +437,9 @@ a {
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="svdd fourthColor">
+                    <p>Smaak van de Dag</p>
+                </div>
                 <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
                 <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>
@@ -464,9 +479,10 @@ a {
                     <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
                 </div>
 
-                <div class="leegWinkelmandje"><a style="background-color:lightcoral; color:black "href="./verwerk/leegwinkelmandje.php">Leeg winkelmandje</a>  </div>
-  <div class="bestellen"></div>
-  <div class="items"><?php
+                <div class="leegWinkelmandje"><a style="background-color:lightcoral; color:black "
+                        href="./verwerk/leegwinkelmandje.php">Leeg winkelmandje</a> </div>
+                <div class="bestellen"></div>
+                <div class="items"><?php
     if (isset($_SESSION['winkelmandje'])) {
        
         foreach ($_SESSION['winkelmandje'] as $item) {
@@ -492,61 +508,70 @@ a {
 
 
     ?></div>
-  <div class="form" id="formBestellen">
-                <form action="./verwerk/bestelling-doorvoeren.php?continue=yes" method="post">
-        <div class="rendered-form">
-            <div class="">
-                <label for=" " class="formitem">Voornaam</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['firstname'] ?>" name="firstname">
-            </div>
-            <div class="">
-                <label for="lastname" class="formitem">Achternaam</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['lastname'] ?>" name="lastname">
-            </div>
-            <div class="">
-                <label for="adress" class="formitem">Adres</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['adress'] ?>" name="adress">
-            </div>
-            <div class="">
-                <label for="zipcode" class="formitem">Postcode</label>
-                <input type="text" class="form-control" access="false" value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['zipcode'] ?>" name="zipcode">
-            </div>
-            <div class="">
-            <input type="radio" id="city1" name="city" value="Den Helder">
-  <label for="city1">Den Helder</label><br>
-  <input type="radio" id="city2" name="city" value="Schagen">
-  <label for="city2">Schagen</label><br>  
-  <input type="radio" id="city3" name="city" value="Schoorl">
-  <label for="city3">Schoorl</label>
-            </div>
-            <div class="">
-                <label for="mvv" class="formbuilder-select-label">Manier van verkrijgen
-                    <br>
-                </label>
-                <select class="form-control" name="wayOfRecieving">
-                    <option value="pickup" selected="true">Afhalen</option>
-                    <option value="delivery">Bezorgen +€4,95</option>
-                </select>
-            </div>
-            <div class="">
-                <label for="dateOfRecieving" class="formbuilder-date-label">Datum van bezorgen/afhalen
-                    <br>
-                </label>
-                <input type="date" class="form-control" access="false" value="2023-01-01" name="dateOfRecieving">
-            </div>
-            <div class="">
-                <button type="submit" access="false">Afronden en Betalen
-                    <br>
-                </button>
-            </div>
-        </div>
+                <div class="form" id="formBestellen">
+                    <form action="./verwerk/bestelling-doorvoeren.php?continue=yes" method="post">
+                        <div class="rendered-form">
+                            <div class="">
+                                <label for=" " class="formitem">Voornaam</label>
+                                <input type="text" class="form-control" access="false"
+                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['firstname'] ?>"
+                                    name="firstname">
+                            </div>
+                            <div class="">
+                                <label for="lastname" class="formitem">Achternaam</label>
+                                <input type="text" class="form-control" access="false"
+                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['lastname'] ?>"
+                                    name="lastname">
+                            </div>
+                            <div class="">
+                                <label for="adress" class="formitem">Adres</label>
+                                <input type="text" class="form-control" access="false"
+                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['adress'] ?>"
+                                    name="adress">
+                            </div>
+                            <div class="">
+                                <label for="zipcode" class="formitem">Postcode</label>
+                                <input type="text" class="form-control" access="false"
+                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['zipcode'] ?>"
+                                    name="zipcode">
+                            </div>
+                            <div class="">
+                                <input type="radio" id="city1" name="city" value="Den Helder">
+                                <label for="city1">Den Helder</label><br>
+                                <input type="radio" id="city2" name="city" value="Schagen">
+                                <label for="city2">Schagen</label><br>
+                                <input type="radio" id="city3" name="city" value="Schoorl">
+                                <label for="city3">Schoorl</label>
+                            </div>
+                            <div class="">
+                                <label for="mvv" class="formbuilder-select-label">Manier van verkrijgen
+                                    <br>
+                                </label>
+                                <select class="form-control" name="wayOfRecieving">
+                                    <option value="pickup" selected="true">Afhalen</option>
+                                    <option value="delivery">Bezorgen +€4,95</option>
+                                </select>
+                            </div>
+                            <div class="">
+                                <label for="dateOfRecieving" class="formbuilder-date-label">Datum van bezorgen/afhalen
+                                    <br>
+                                </label>
+                                <input type="date" class="form-control" access="false" value="2023-01-01"
+                                    name="dateOfRecieving">
+                            </div>
+                            <div class="">
+                                <button type="submit" access="false">Afronden en Betalen
+                                    <br>
+                                </button>
+                            </div>
+                        </div>
 
 
 
-    </form>
-    </div>
+                    </form>
+                </div>
 
-                
+
 
 
 

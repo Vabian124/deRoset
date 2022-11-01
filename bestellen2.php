@@ -113,9 +113,7 @@ $products = $products->getAll();
 
 }
 
-.smaak-vd-dag>div {
-
-}
+.smaak-vd-dag>div {}
 
 html,
 body,
@@ -134,8 +132,8 @@ body,
     border: 3px solid black;
     position: relative;
     border-radius: 15px;
-  -moz-border-radius: 15px;
-  padding: 2%;
+    -moz-border-radius: 15px;
+    padding: 2%;
 }
 
 
@@ -291,28 +289,46 @@ body,
 .imgL {
     align-self: left;
 }
+
 .content {
 
-    display: grid; 
-  grid-auto-columns: 1fr; 
-  grid-auto-rows: 1fr; 
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-  gap: 5px 5px; 
-  grid-template-areas: 
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."
-    ". . . . ."; 
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px 5px;
+    grid-template-areas:
+        ". . . . ."
+        ". . . . ."
+        ". . . . ."
+        ". . . . ."
+        ". . . . .";
 }
 
-.title { grid-area: title; }
-.text { grid-area: text; }
-.img { grid-area: img; }
-.text2 { grid-area: text2; }
-.img2 { grid-area: img2; }
-.text3 { grid-area: text3; }
+.title {
+    grid-area: title;
+}
+
+.text {
+    grid-area: text;
+}
+
+.img {
+    grid-area: img;
+}
+
+.text2 {
+    grid-area: text2;
+}
+
+.img2 {
+    grid-area: img2;
+}
+
+.text3 {
+    grid-area: text3;
+}
 </style>
 
 <body>

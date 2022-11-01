@@ -70,7 +70,8 @@ $products = $products->getAll();
         "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-.Account{
+
+.Account {
     grid-area: Account;
 }
 
@@ -121,7 +122,7 @@ body,
     padding: 2%;
 }
 
-div{
+div {
     border: 3px solid black;
 }
 
@@ -297,7 +298,8 @@ div{
 .title {
     grid-area: title;
 }
-.Logo2{
+
+.Logo2 {
     grid-area: Logo2;
     display: none;
 }
@@ -311,7 +313,7 @@ div{
 
 .sidebar .img {
     grid-area: img;
-    width:100%;
+    width: 100%;
     border-radius: 50%;
 }
 
@@ -326,27 +328,29 @@ div{
 .text3 {
     grid-area: text3;
 }
+
 p {
-        font-size: 20px;
-    }
-    a{
-        border: 0px solid black;
-        text-decoration: none;
-    }
+    font-size: 20px;
+}
+
+a {
+    border: 0px solid black;
+    text-decoration: none;
+}
 
 @media screen and (max-width: 720px) {
-    
+
     .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
-    grid-template-rows: 0.4fr 1.8fr 0fr;
-    gap: 1% 3%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        ". Logo main main ."
-        ". sidebar main main ."
-        ". Footer Footer Footer .";
-}
+        display: grid;
+        grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". Logo main main ."
+            ". sidebar main main ."
+            ". Footer Footer Footer .";
+    }
 
 
     .sidebar {
@@ -362,24 +366,29 @@ p {
     .Logo {
         display: none;
     }
+
     html,
-body,
-.container {
-    height: 100%;
-    margin: 0;
-}
-.Footer{
-    display:none;
-}
-div{
-    border: 0px solid black;
-}
-.Logo2{
-    display:grid;
-}
-.content > img{
-        height:100px;
-        width:100px;
+    body,
+    .container {
+        height: 100%;
+        margin: 0;
+    }
+
+    .Footer {
+        display: none;
+    }
+
+    div {
+        border: 0px solid black;
+    }
+
+    .Logo2 {
+        display: grid;
+    }
+
+    .content>img {
+        height: 100px;
+        width: 100px;
     }
 
 }
@@ -396,7 +405,9 @@ div{
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="svdd fourthColor">
+                    <p>Smaak van de Dag</p>
+                </div>
                 <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
                 <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>
@@ -415,42 +426,53 @@ div{
         </div>
         <div class="main">
             <div class="header fourthColor">
-            
-            <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
-            <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
-            <div class="Blog"><a href="./blog.php">Blog</a></div>
-            <div class="Contact"><a href="./contact.php">Contact</a></div>
-            <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
-            <div class="Account"><a href="./account.php">Account</a></div>
-        </div>
 
-            
+                <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
+                <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
+                <div class="Blog"><a href="./blog.php">Blog</a></div>
+                <div class="Contact"><a href="./contact.php">Contact</a></div>
+                <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
+                <div class="Account"><a href="./account.php">Account</a></div>
+            </div>
+
+
             <div class="content thirdColor">
-                
+
                 <div class="title thirdColor noOutline">
                     <h2 class="noOutline thirdColor">Over ons</h2>
-                    
+
                 </div>
-                
+
                 <div class="Logo2">
-                        <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
-                    </div>
-                    
-                <div class="text"><p class="noOutline">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, consectetur magni!
-                    In quibusdam officiis sapiente obcaecati dicta eius rerum quasi suscipit aut. Quo recusandae fugit
-                    dolores inventore cum dolorum ipsa.</p></div>
+                    <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
+                </div>
+
+                <div class="text">
+                    <p class="noOutline">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis, consectetur
+                        magni!
+                        In quibusdam officiis sapiente obcaecati dicta eius rerum quasi suscipit aut. Quo recusandae
+                        fugit
+                        dolores inventore cum dolorum ipsa.</p>
+                </div>
                 <div class="img"></div>
-                <div class="text2"><p class="noOutline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint soluta at
-                    molestiae nostrum doloribus tempora? Accusamus, laboriosam enim ullam error maxime labore illum at
-                    quas laborum, impedit tempore repudiandae?</p></div>
+                <div class="text2">
+                    <p class="noOutline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint soluta
+                        at
+                        molestiae nostrum doloribus tempora? Accusamus, laboriosam enim ullam error maxime labore illum
+                        at
+                        quas laborum, impedit tempore repudiandae?</p>
+                </div>
                 <div class="img2"></div>
-                <div class="text3"><p class="noOutline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam esse voluptatem
-                    exercitationem, laborum, enim rem eaque, laboriosam dolorem ipsam inventore nisi officia culpa
-                    voluptates! Culpa itaque ut perferendis ipsa nobis.</p></div>
+                <div class="text3">
+                    <p class="noOutline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam esse
+                        voluptatem
+                        exercitationem, laborum, enim rem eaque, laboriosam dolorem ipsam inventore nisi officia culpa
+                        voluptates! Culpa itaque ut perferendis ipsa nobis.</p>
+                </div>
 
 
-          
-        </div>
+
+            </div>
         </div>
         <div class="Footer fourthColor">
             <div class="info thirdColor">

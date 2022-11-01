@@ -71,12 +71,14 @@ if (!isset($_SESSION['uid'])) {
                         </div>
                         <div class="form-group">
                             <label for="geboortedatum">Geboortedatum</label>
-                            <input type="date" name="geboortedatum" id="geboortedatum" value='<?php echo $date_of_birth ?>'>
+                            <input type="date" name="geboortedatum" id="geboortedatum"
+                                value='<?php echo $date_of_birth ?>'>
                         </div>
 
                         <div class="form-group">
                             <label for="telefoonnummer">Telefoonnummer</label>
-                            <input type="text" name="telefoonnummer" id="telefoonnummer" value='<?php echo $phonenumber ?>'>
+                            <input type="text" name="telefoonnummer" id="telefoonnummer"
+                                value='<?php echo $phonenumber ?>'>
                         </div>
 
                         <div class="form-group">

@@ -17,7 +17,6 @@ $products = $products->getAll();
 ?>
 <br>
 <style>
-
 .popsmaken {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -78,6 +77,7 @@ $products = $products->getAll();
     grid-area: header;
     background-color: #293132;
 }
+
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -114,7 +114,8 @@ $products = $products->getAll();
     grid-area: content;
     background-color: #CAE7B9;
 }
-.smaak-vd-dag>div{
+
+.smaak-vd-dag>div {
     background-color: #CAE7B9;
 }
 
@@ -124,7 +125,8 @@ body,
     height: 100%;
     margin: 0;
 }
-.Footer{
+
+.Footer {
     text-align: center;
 }
 
@@ -147,134 +149,134 @@ body,
     justify-content: center;
 }
 
-    
-    .container {
-        display: grid;
-        grid-template-columns: 0.3fr 1.7fr 1fr;
-        grid-template-rows: 0.4fr 1.8fr 0.4fr;
-        gap: 1% 3%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "Logo main main"
-            "sidebar main main"
-            "Footer Footer Footer";
-    }
 
-    .Logo {
-        display: grid;
-        grid-template-columns: 0.3fr 2.4fr 0.3fr;
-        grid-template-rows: 0.3fr 2.2fr 0.5fr;
-        gap: 1% 1%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ". . ."
-            ". img ."
-            ". imgText .";
-        grid-area: Logo;
-    }
-    .Logo .img img{
-        width: 100%;
-    }
+.container {
+    display: grid;
+    grid-template-columns: 0.3fr 1.7fr 1fr;
+    grid-template-rows: 0.4fr 1.8fr 0.4fr;
+    gap: 1% 3%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "Logo main main"
+        "sidebar main main"
+        "Footer Footer Footer";
+}
 
-    .img {
-        grid-area: img;
-    }
+.Logo {
+    display: grid;
+    grid-template-columns: 0.3fr 2.4fr 0.3fr;
+    grid-template-rows: 0.3fr 2.2fr 0.5fr;
+    gap: 1% 1%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". . ."
+        ". img ."
+        ". imgText .";
+    grid-area: Logo;
+}
 
-    .imgText {
-        grid-area: imgText;
-        text-align: center;
-    }
+.Logo .img img {
+    width: 100%;
+}
 
-    .Footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 1% 1%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "info bezorggebieden onze-voorwaarden"
-            "info bezorggebieden onze-voorwaarden"
-            "info bezorggebieden onze-voorwaarden";
-        grid-area: Footer;
-    }
+.img {
+    grid-area: img;
+}
 
-    .info {
-        grid-area: info;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        text-decoration: none;
+.imgText {
+    grid-area: imgText;
+    text-align: center;
+}
 
-        
-    }
-    
-    .footer > div{
-        display: flex;
-        justify-content: center;
-        text-align: left;
-        text-decoration: none;
-        padding-top:2%
-        
-    }
-    
-    .bezorggebieden {
-        grid-area: bezorggebieden;
-    }
+.Footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1% 1%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "info bezorggebieden onze-voorwaarden"
+        "info bezorggebieden onze-voorwaarden"
+        "info bezorggebieden onze-voorwaarden";
+    grid-area: Footer;
+}
 
-    .onze-voorwaarden {
-        grid-area: onze-voorwaarden;
-    }
+.info {
+    grid-area: info;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
 
-    .sidebar {
-        display: grid;
-        grid-template-columns: 1fr 0.9fr 1.1fr;
-        grid-template-rows: 1.3fr 0.7fr 1fr;
-        gap: 1% 1%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "smaak-vd-dag smaak-vd-dag smaak-vd-dag"
-            "populaire-smaken populaire-smaken populaire-smaken"
-            "populaire-smaken populaire-smaken populaire-smaken";
-        grid-area: sidebar;
-    }
 
-    .smaak-vd-dag {
-        display: grid;
-        grid-template-columns: 0.3fr 2.4fr 0.3fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 1% 1%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ". svdd ."
-            ". imgsvdd ."
-            ". bestel .";
-        grid-area: smaak-vd-dag;
-    }
+}
 
-    .svdd {
-        grid-area: svdd;
-    }
+.footer>div {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    text-decoration: none;
+    padding-top: 2%
+}
 
-    .imgsvdd {
-        grid-area: imgsvdd;
-    }
+.bezorggebieden {
+    grid-area: bezorggebieden;
+}
 
-    .bestel {
-        grid-area: bestel;
-    }
+.onze-voorwaarden {
+    grid-area: onze-voorwaarden;
+}
 
-    .populaire-smaken {
-        display: grid;
-        grid-template-columns: 0.3fr 2.4fr 0.3fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 1% 1%;
-        grid-auto-flow: row;
-        grid-template-areas:
-            ". textpopsmaken ."
-            ". popsmaken ."
-            ". popsmaken .";
-        grid-area: populaire-smaken;
-    }
+.sidebar {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr 1.1fr;
+    grid-template-rows: 1.3fr 0.7fr 1fr;
+    gap: 1% 1%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "smaak-vd-dag smaak-vd-dag smaak-vd-dag"
+        "populaire-smaken populaire-smaken populaire-smaken"
+        "populaire-smaken populaire-smaken populaire-smaken";
+    grid-area: sidebar;
+}
+
+.smaak-vd-dag {
+    display: grid;
+    grid-template-columns: 0.3fr 2.4fr 0.3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1% 1%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". svdd ."
+        ". imgsvdd ."
+        ". bestel .";
+    grid-area: smaak-vd-dag;
+}
+
+.svdd {
+    grid-area: svdd;
+}
+
+.imgsvdd {
+    grid-area: imgsvdd;
+}
+
+.bestel {
+    grid-area: bestel;
+}
+
+.populaire-smaken {
+    display: grid;
+    grid-template-columns: 0.3fr 2.4fr 0.3fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1% 1%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". textpopsmaken ."
+        ". popsmaken ."
+        ". popsmaken .";
+    grid-area: populaire-smaken;
+}
 </style>
 
 <body>
@@ -285,7 +287,7 @@ body,
             <div class="img"><img src="./logo.png" alt="logo" srcset=""></div>
             <div class="imgText">De Roset</div>
         </div>
-        
+
         <div class="sidebar">
             <div class="smaak-vd-dag">
                 <div class="svdd">Dit is de svdd</div>
@@ -320,7 +322,7 @@ body,
             </div>
             <div class="content">
 
-            
+
             </div>
         </div>
         <div class="Footer">
@@ -332,17 +334,17 @@ body,
                 </p>
             </div>
             <div class="bezorggebieden">
-            <p>we bezorgen in<br>
-            den helder<br>
-schagen<br>
-schoorl
+                <p>we bezorgen in<br>
+                    den helder<br>
+                    schagen<br>
+                    schoorl
                 </p>
             </div>
-            <div class="onze-voorwaarden"> 
-            <p>Onze Voorwaarden<br>
-            hoge bezorgkosten<br>
-            privayverkklaring<br>
-            
+            <div class="onze-voorwaarden">
+                <p>Onze Voorwaarden<br>
+                    hoge bezorgkosten<br>
+                    privayverkklaring<br>
+
                 </p>
             </div>
 

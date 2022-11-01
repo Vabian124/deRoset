@@ -72,9 +72,11 @@ $products = $products->getAll();
         "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-.Account{
+
+.Account {
     grid-area: Account;
 }
+
 .Over-ons {
     grid-area: Over-ons;
 }
@@ -122,7 +124,7 @@ body,
     padding: 2%;
 }
 
-div{
+div {
     border: 3px solid black;
 }
 
@@ -296,7 +298,8 @@ div{
 .title {
     grid-area: title;
 }
-.Logo2{
+
+.Logo2 {
     grid-area: Logo2;
     display: none;
 }
@@ -323,36 +326,42 @@ div{
 .text3 {
     grid-area: text3;
 }
+
 p {
-        font-size: 20px;
-    }
-    a{
-        border: 0px solid black;
-        text-decoration: none;
-        color: black;
-    }
-    img{
-        width: 93%;
-        
-    }
-    .items{
-        display: grid;
-    grid-template-columns: 17% 17% 17% 17% 17% ;
-    grid-template-rows:17% 17% 17% 17% 17% ;
+    font-size: 20px;
+}
+
+a {
+    border: 0px solid black;
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    width: 93%;
+
+}
+
+.items {
+    display: grid;
+    grid-template-columns: 17% 17% 17% 17% 17%;
+    grid-template-rows: 17% 17% 17% 17% 17%;
     gap: 2% 3.5%;
     grid-auto-flow: row;
     grid-template-areas:
         "item item item item item"
         "item item item item item"
         "item item item item item";
-        grid-area: items;
-    }
-    .sidebar .img {
+    grid-area: items;
+}
+
+.sidebar .img {
     grid-area: img;
-    width:100%;
+    width: 100%;
     border-radius: 50%;
 }
-div.items div.item a img.img{
+
+div.items div.item a img.img {
     border-radius: 50%;
 }
 
@@ -361,16 +370,16 @@ div.items div.item a img.img{
 
 
     .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
-    grid-template-rows: 0.4fr 1.8fr 0fr;
-    gap: 1% 3%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        ". Logo main main ."
-        ". sidebar main main ."
-        ". Footer Footer Footer .";
-}
+        display: grid;
+        grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". Logo main main ."
+            ". sidebar main main ."
+            ". Footer Footer Footer .";
+    }
 
     .sidebar {
         display: none;
@@ -385,21 +394,25 @@ div.items div.item a img.img{
     .Logo {
         display: none;
     }
+
     html,
-body,
-.container {
-    height: 100%;
-    margin: 0;
-}
-.Footer{
-    display:none;
-}
-div{
-    border: 0px solid black;
-}
-.Logo2{
-    display:grid;
-}
+    body,
+    .container {
+        height: 100%;
+        margin: 0;
+    }
+
+    .Footer {
+        display: none;
+    }
+
+    div {
+        border: 0px solid black;
+    }
+
+    .Logo2 {
+        display: grid;
+    }
 }
 </style>
 
@@ -414,7 +427,9 @@ div{
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="svdd fourthColor">
+                    <p>Smaak van de Dag</p>
+                </div>
                 <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
                 <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>
@@ -432,9 +447,9 @@ div{
             </div>
         </div>
         <div class="main">
-            
+
             <div class="header fourthColor">
-            
+
 
 
 
@@ -448,16 +463,16 @@ div{
 
             </div>
             <div class="content thirdColor">
-                
+
                 <div class="title thirdColor noOutline">
                     <h2 class="noOutline thirdColor">Bestellen</h2>
-                    
+
                 </div>
-                
+
                 <div class="Logo2">
-                        <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
-                    </div>
-                    <div class="items">
+                    <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
+                </div>
+                <div class="items">
                     <?php
 
             foreach ($products as $product) {
@@ -469,12 +484,12 @@ div{
                         ';
             }
             ?>
-            
-            </div>
+
+                </div>
             </div>
 
-            
-            
+
+
         </div>
         <div class="Footer fourthColor">
             <div class="info thirdColor">

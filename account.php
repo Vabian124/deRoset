@@ -70,7 +70,8 @@ $products = $products->getAll();
         "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-.Account{
+
+.Account {
     grid-area: Account;
 }
 
@@ -121,7 +122,7 @@ body,
     padding: 2%;
 }
 
-div{
+div {
     border: 3px solid black;
 }
 
@@ -290,17 +291,20 @@ div{
         "login . register";
 
 }
-.login{
- grid-area: login;
+
+.login {
+    grid-area: login;
 }
-.register{
+
+.register {
     grid-area: register;
 }
 
 .title {
     grid-area: title;
 }
-.Logo2{
+
+.Logo2 {
     grid-area: Logo2;
     display: none;
 }
@@ -314,7 +318,7 @@ div{
 
 .sidebar .img {
     grid-area: img;
-    width:100%;
+    width: 100%;
     border-radius: 50%;
 }
 
@@ -329,28 +333,30 @@ div{
 .text3 {
     grid-area: text3;
 }
+
 p {
-        font-size: 20px;
-    }
-    a{
-        border: 0px solid black;
-        text-decoration: none;
-    }
+    font-size: 20px;
+}
+
+a {
+    border: 0px solid black;
+    text-decoration: none;
+}
 
 @media screen and (max-width: 720px) {
-    
+
 
     .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
-    grid-template-rows: 0.4fr 1.8fr 0fr;
-    gap: 1% 3%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        ". Logo main main ."
-        ". sidebar main main ."
-        ". Footer Footer Footer .";
-}
+        display: grid;
+        grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". Logo main main ."
+            ". sidebar main main ."
+            ". Footer Footer Footer .";
+    }
 
 
     .sidebar {
@@ -366,21 +372,25 @@ p {
     .Logo {
         display: none;
     }
+
     html,
-body,
-.container {
-    height: 100%;
-    margin: 0;
-}
-.Footer{
-    display:none;
-}
-div{
-    border: 0px solid black;
-}
-.Logo2{
-    display:grid;
-}
+    body,
+    .container {
+        height: 100%;
+        margin: 0;
+    }
+
+    .Footer {
+        display: none;
+    }
+
+    div {
+        border: 0px solid black;
+    }
+
+    .Logo2 {
+        display: grid;
+    }
 
 }
 </style>
@@ -396,7 +406,9 @@ div{
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="svdd fourthColor">
+                    <p>Smaak van de Dag</p>
+                </div>
                 <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
                 <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>
@@ -415,29 +427,29 @@ div{
         </div>
         <div class="main">
             <div class="header fourthColor">
-            
-            <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
-            <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
-            <div class="Blog"><a href="./blog.php">Blog</a></div>
-            <div class="Contact"><a href="./contact.php">Contact</a></div>
-            <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
-            <div class="Account"><a href="./account.php">Account</a></div>
-        </div>
 
-            
+                <div class="Over-ons"><a href="./over-ons.php">Over ons</a></div>
+                <div class="Bestellen"><a href="./bestellen.php">Bestellen</a></div>
+                <div class="Blog"><a href="./blog.php">Blog</a></div>
+                <div class="Contact"><a href="./contact.php">Contact</a></div>
+                <div class="Winkelmandje"><a href="./winkelmandje.php">Winkelmandje</a></div>
+                <div class="Account"><a href="./account.php">Account</a></div>
+            </div>
+
+
             <div class="content thirdColor">
-                
+
                 <div class="title thirdColor noOutline">
                     <h2 class="noOutline thirdColor">Account</h2>
-                    
-                </div>
-                
-                <div class="Logo2">
-                        <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
-                    </div>
 
-                    
-                    <div class="login form ">
+                </div>
+
+                <div class="Logo2">
+                    <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
+                </div>
+
+
+                <div class="login form ">
                     <form action="verwerk/login.php" method="post">
                         <div class="item">
 
@@ -515,8 +527,8 @@ div{
                 </div>
 
 
-          
-        </div>
+
+            </div>
         </div>
         <div class="Footer fourthColor">
             <div class="info thirdColor">

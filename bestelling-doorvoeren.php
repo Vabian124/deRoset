@@ -22,25 +22,30 @@ include('./blocks/header.php');
         <div class="rendered-form">
             <div class="">
                 <label for=" " class="formitem">Voornaam</label>
-                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['firstname'] ?>" name="firstname">
+                <input type="text" class="form-control" access="false"
+                    value="<?php echo $_SESSION['user']['firstname'] ?>" name="firstname">
             </div>
             <div class="">
                 <label for="lastname" class="formitem">Achternaam</label>
-                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['lastname'] ?>" name="lastname">
+                <input type="text" class="form-control" access="false"
+                    value="<?php echo $_SESSION['user']['lastname'] ?>" name="lastname">
             </div>
             <div class="">
                 <label for="adress" class="formitem">Adres</label>
-                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['adress'] ?>" name="adress">
+                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['adress'] ?>"
+                    name="adress">
             </div>
             <div class="">
                 <label for="zipcode" class="formitem">Postcode</label>
-                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['zipcode'] ?>" name="zipcode">
+                <input type="text" class="form-control" access="false"
+                    value="<?php echo $_SESSION['user']['zipcode'] ?>" name="zipcode">
             </div>
             <div class="">
                 <label for="city" class="formitem">Stad
                     <br>
                 </label>
-                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['city'] ?>" name="city">
+                <input type="text" class="form-control" access="false" value="<?php echo $_SESSION['user']['city'] ?>"
+                    name="city">
             </div>
             <div class="">
                 <label for="mvv" class="formbuilder-select-label">Manier van verkrijgen

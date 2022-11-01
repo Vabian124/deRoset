@@ -71,7 +71,8 @@ $products = $products->getAll();
         "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-.Account{
+
+.Account {
     grid-area: Account;
 }
 
@@ -355,9 +356,10 @@ img {
 
 .sidebar .img {
     grid-area: img;
-    width:100%;
+    width: 100%;
     border-radius: 50%;
 }
+
 div.items div.item a img.img {
     border-radius: 50%;
 }
@@ -410,40 +412,47 @@ body,
     margin: 0;
 }
 
-.content {  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1fr 1fr;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  gap: 5px 5px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "title . Logo2"
-    "text1 text1 img1"
-    "img2 img2 img2";
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "title . Logo2"
+        "text1 text1 img1"
+        "img2 img2 img2";
 }
 
-.text1 { grid-area: text1; }
+.text1 {
+    grid-area: text1;
+}
 
-.img1 { grid-area: img1; }
+.img1 {
+    grid-area: img1;
+}
 
-.img2 { grid-area: img2; }
+.img2 {
+    grid-area: img2;
+}
 
 
 
 @media screen and (max-width: 720px) {
 
     .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
-    grid-template-rows: 0.4fr 1.8fr 0fr;
-    gap: 1% 3%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        ". Logo main main ."
-        ". sidebar main main ."
-        ". Footer Footer Footer .";
-}
+        display: grid;
+        grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". Logo main main ."
+            ". sidebar main main ."
+            ". Footer Footer Footer .";
+    }
 
 
     .sidebar {
@@ -492,7 +501,9 @@ body,
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="svdd fourthColor">
+                    <p>Smaak van de Dag</p>
+                </div>
                 <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
                 <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>

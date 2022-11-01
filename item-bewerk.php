@@ -31,7 +31,8 @@ $idProducts = $product->getById($id);
                         </div>
                         <div class="form-group">
                             <label for="price_per_kg">price_per_kg</label>
-                            <input type="text" name="price_per_kg" id="price_per_kg" value='<?php echo $idProducts['price_per_kg'] ?>'>
+                            <input type="text" name="price_per_kg" id="price_per_kg"
+                                value='<?php echo $idProducts['price_per_kg'] ?>'>
                         </div>
                         <div class="form-group">
                             <label for="is_flavor_of_week">Flavor of the week</label>
@@ -46,7 +47,8 @@ $idProducts = $product->getById($id);
                         </div>
                         <div class="form-group">
                             <label for="category">category</label>
-                            <input type="text" name="category" id="category" value='<?php echo $idProducts['category'] ?>'>
+                            <input type="text" name="category" id="category"
+                                value='<?php echo $idProducts['category'] ?>'>
                         </div>
 
 

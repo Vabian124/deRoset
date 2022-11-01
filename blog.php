@@ -72,7 +72,8 @@ $products = $products->getAll();
         "Over-ons Bestellen Blog Contact Winkelmandje Account";
     grid-area: header;
 }
-.Account{
+
+.Account {
     grid-area: Account;
 }
 
@@ -355,7 +356,7 @@ img {
 
 .sidebar .img {
     grid-area: img;
-    width:100%;
+    width: 100%;
     border-radius: 50%;
 }
 
@@ -439,16 +440,16 @@ body,
 @media screen and (max-width: 720px) {
 
     .container {
-    display: grid;
-    grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
-    grid-template-rows: 0.4fr 1.8fr 0fr;
-    gap: 1% 3%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        ". Logo main main ."
-        ". sidebar main main ."
-        ". Footer Footer Footer .";
-}
+        display: grid;
+        grid-template-columns: 0fr 0fr 1.7fr 1fr 0fr;
+        grid-template-rows: 0.4fr 1.8fr 0fr;
+        gap: 1% 3%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            ". Logo main main ."
+            ". sidebar main main ."
+            ". Footer Footer Footer .";
+    }
 
 
     .sidebar {
@@ -497,7 +498,9 @@ body,
 
         <div class="sidebar fourthColor">
             <div class="smaak-vd-dag thirdColor">
-                <div class="svdd fourthColor"><p>Smaak van de Dag</p></div>
+                <div class="svdd fourthColor">
+                    <p>Smaak van de Dag</p>
+                </div>
                 <div class="imgsvdd fourthColor"><img class="img" src="./img/22.jpg"></div>
                 <div class="bestel fourthColor"><a href="./bestellen.php" style="font-size: 30px;">Bestel!</a></div>
             </div>
@@ -541,13 +544,25 @@ body,
                 </div>
 
                 <div class="post1">
-                    <div class="title1"><p>Sinterklaas is op bezoek</p></div>
-                    <div class="text1"><h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam culpa natus sit repellat modi voluptate tenetur deleniti fugiat esse. Quas praesentium hic iusto magnam nihil nemo repellendus itaque aspernatur! Tempore.</h2></div>
+                    <div class="title1">
+                        <p>Sinterklaas is op bezoek</p>
+                    </div>
+                    <div class="text1">
+                        <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam culpa natus sit repellat
+                            modi voluptate tenetur deleniti fugiat esse. Quas praesentium hic iusto magnam nihil nemo
+                            repellendus itaque aspernatur! Tempore.</h2>
+                    </div>
                     <div class="img1"></div>
                 </div>
                 <div class="post2">
-                    <div class="title2"><p>25 jaar bestaam is een groot succes</p></div>
-                    <div class="text2"><h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro numquam repudiandae est nostrum, qui hic rerum quae ut et iure velit debitis saepe assumenda praesentium? Porro maiores velit et magni.</h2></div>
+                    <div class="title2">
+                        <p>25 jaar bestaam is een groot succes</p>
+                    </div>
+                    <div class="text2">
+                        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro numquam repudiandae est
+                            nostrum, qui hic rerum quae ut et iure velit debitis saepe assumenda praesentium? Porro
+                            maiores velit et magni.</h2>
+                    </div>
                     <div class="img2"></div>
                 </div>
             </div>

@@ -70,4 +70,3 @@ $conn = $databaseConnection->getConnection();
         }
     }
 }
-
