@@ -1,4 +1,6 @@
 <?php
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require "$rootDir\deRoset\\verwerk\session.php";
 class Order
 {
     private $conn;

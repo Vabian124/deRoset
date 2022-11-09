@@ -1,5 +1,6 @@
 <?php
-require_once('../verwerk/session.php');
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require "$rootDir\deRoset\\verwerk\session.php";
 
 class User
 {
@@ -12,17 +13,16 @@ class User
     }
     public function login($email, $wachtwoord)
     {
+        
         $sql = "select * from users where email = '$email' and password = '$wachtwoord'";
         $result = mysqli_query($this->conn, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $count = mysqli_num_rows($result);
 
-        if ($count == 1) {
-            echo "Login Geslaagd!";
+        if ($count == 1) {            
             $_SESSION['uid'] = $row['id'];
             $_SESSION['user'] = $row;
-        } else {
-            echo $count;
+        } else {    
             echo "Login niet gelukt. Probeer het nog een keer";
         }
     }
@@ -74,14 +74,22 @@ class User
             echo "succes for " . $id;
         }
     }
-    public function delete($email)
+    public function delete($id)
     {
-        $sql = "DELETE FROM users WHERE users.email ='$email'";
+        $sql = "DELETE FROM users WHERE users.id ='$id'";
         if (mysqli_query($this->conn, $sql)) {
             session_destroy();
             session_unset();
             session_abort();
             header("location: ../index.php");
+        }
+    }
+    public function logout()
+    {
+        if (isset($_SESSION)) {
+            session_destroy();
+            session_unset();
+            session_abort();
         }
     }
 }

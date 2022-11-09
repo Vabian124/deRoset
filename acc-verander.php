@@ -9,10 +9,45 @@
     <title>Document</title>
 </head>
 <?php
-include_once('./verwerk/database.php');
-include_once('./classes/product.php');
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require "$rootDir\deRoset\\verwerk\session.php";
+require "$rootDir\deRoset\\verwerk\database.php";
+require "$rootDir\deRoset\\classes\product.php";
 $products = new product($conn);
 $products = $products->getAll();
+
+
+if (isset($_SESSION['user']['id']))
+    $id = $_SESSION['user']['id'];
+$firstname = $_SESSION['user']['firstname'];
+$lastname  = $_SESSION['user']['lastname'];
+$email = $_SESSION['user']['email'];
+$password = $_SESSION['user']['password'];
+$date_of_birth = $_SESSION['user']['date_of_birth'];
+$phonenumber = $_SESSION['user']['phonenumber'];
+$adress = $_SESSION['user']['adress'];
+$zipcode = $_SESSION['user']['zipcode'];
+$city = $_SESSION['user']['city'];
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    //require toegang.php
+    $user = new User($conn);
+    $idUser = $user->getById($id);
+    var_dump($idUser);
+    $firstname = $idUser['firstname'];
+    $lastname = $idUser['lastname'];
+    $email = $idUser['email'];
+    $password = $idUser['password'];
+    $date_of_birth = $idUser['date_of_birth'];
+    $phonenumber = $idUser['phonenumber'];
+    $adress = $idUser['adress'];
+    $zipcode = $idUser['zipcode'];
+    $city = $idUser['city'];
+}
+
+if (!isset($_SESSION['uid'])) {
+}
 
 ?>
 <br>
@@ -58,7 +93,6 @@ $products = $products->getAll();
         "content content content";
     grid-area: main;
 }
-
 
 
 .header {
@@ -219,7 +253,7 @@ div {
 .sidebar {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr 1.1fr;
-    grid-template-rows: 0.8fr 0.7fr 0.4fr;
+    grid-template-rows: 1.3fr 0.7fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -232,7 +266,7 @@ div {
 .smaak-vd-dag {
     display: grid;
     grid-template-columns: 0.3fr 2.4fr 0.3fr;
-    grid-template-rows: 0.1fr 0.4fr 0.2fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -257,7 +291,7 @@ div {
 .populaire-smaken {
     display: grid;
     grid-template-columns: 0.3fr 2.4fr 0.3fr;
-    grid-template-rows: 0.2fr 0.7fr 0.7fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
     gap: 1% 1%;
     grid-auto-flow: row;
     grid-template-areas:
@@ -284,17 +318,22 @@ div {
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.2fr 1fr 1fr 1fr;
+    grid-template-columns: 1.1fr 0.4fr 1.1fr;
+    grid-template-rows: 0.2fr 1fr;
     gap: 5px 5px;
     grid-template-areas:
         "title . Logo2"
-        "text text img"
-        "text2 text2 text2"
-        "img2 text3 text3";
+        "login . register";
 
 }
 
+.login {
+    grid-area: login;
+}
+
+.register {
+    grid-area: register;
+}
 
 .title {
     grid-area: title;
@@ -337,36 +376,6 @@ p {
 a {
     border: 0px solid black;
     text-decoration: none;
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.1fr 0.5fr 0.1fr;
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
-    gap: 5px 5px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "title . Logo2"
-        "form items items "
-        "form leegWinkelmandje bestellen ";
-}
-
-.leegWinkelmandje {
-    grid-area: leegWinkelmandje;
-}
-
-.bestellen {
-    grid-area: bestellen;
-}
-
-.items {
-    grid-area: items;
-}
-
-.form {
-    grid-area: form;
 }
 
 @media screen and (max-width: 720px) {
@@ -418,18 +427,13 @@ a {
         display: grid;
     }
 
-    .content {
-        height: 750px;
-    }
-
-
 }
 </style>
 
 <body>
 
 
-    <div class="container fifthColor noOutline">
+    <div class="container fifthColor">
         <div class="Logo fourthColor">
             <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
             <div class="imgText">De Roset</div>
@@ -471,7 +475,7 @@ a {
             <div class="content thirdColor">
 
                 <div class="title thirdColor noOutline">
-                    <h2 class="noOutline thirdColor">Winkelmandje</h2>
+                    <h2 class="noOutline thirdColor">Account</h2>
 
                 </div>
 
@@ -479,101 +483,87 @@ a {
                     <div class="img"><img src="./img/logo.png" alt="logo" srcset=""></div>
                 </div>
 
-                <div class="leegWinkelmandje"><a style="background-color:lightcoral; color:black "
-                        href="./verwerk/leegwinkelmandje.php">Leeg winkelmandje</a> </div>
-                <div class="bestellen"></div>
-                <div class="items"><?php
-    if (isset($_SESSION['winkelmandje'])) {
-       
-        foreach ($_SESSION['winkelmandje'] as $item) {
-            if ($item['is_flavor_of_week'] == "0") {
-                $isRecieved = "Nee";
-            } else {
-                $isRecieved = "Ja";
-            }
 
-            echo '<p>' . $item['name'] . " - €" . $item['price_per_kg'] . "/kg - " . $isRecieved . " - " . $item['category'] . '<br></a><br><a style="background-color:red;" href="./verwerk/leegwinkelmandje.php?id=' . $item['id'] . '">Verwijder</a><br>';
+                <div class="login form ">
+                    <form action="verwerk/login.php" method="post">
+                        <div class="item">
 
-            echo "
-        <br>
-        
-        
-        
-        ";
-        }
-    } else //als winkelmand leeg is
-    {
-        echo "Winkelmandje is leeg";
-        
+                            <div>
 
-    }
+                                <p>Gebruikersnaam:</p>
+                                <input type="text" name="uid">
 
+                            </div>
+                            <div>
 
-    ?></div>
-                <div class="form" id="formBestellen">
-                    <form action="./verwerk/bestelling-doorvoeren.php?continue=yes" method="post">
-                        <div class="rendered-form">
-                            <div class="">
-                                <label for=" " class="formitem">Voornaam</label>
-                                <input type="text" class="form-control" access="false"
-                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['firstname'] ?>"
-                                    name="firstname">
+                                <p>Wachtwoord:</p>
+                                <input type="password" name="pwd">
+
                             </div>
-                            <div class="">
-                                <label for="lastname" class="formitem">Achternaam</label>
-                                <input type="text" class="form-control" access="false"
-                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['lastname'] ?>"
-                                    name="lastname">
-                            </div>
-                            <div class="">
-                                <label for="adress" class="formitem">Adres</label>
-                                <input type="text" class="form-control" access="false"
-                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['adress'] ?>"
-                                    name="adress">
-                            </div>
-                            <div class="">
-                                <label for="zipcode" class="formitem">Postcode</label>
-                                <input type="text" class="form-control" access="false"
-                                    value="<?php if(isset($_SESSION['user']))echo $_SESSION['user']['zipcode'] ?>"
-                                    name="zipcode">
-                            </div>
-                            <div class="">
-                                <input type="radio" id="city1" name="city" value="Den Helder">
-                                <label for="city1">Den Helder</label><br>
-                                <input type="radio" id="city2" name="city" value="Schagen">
-                                <label for="city2">Schagen</label><br>
-                                <input type="radio" id="city3" name="city" value="Schoorl">
-                                <label for="city3">Schoorl</label>
-                            </div>
-                            <div class="">
-                                <label for="mvv" class="formbuilder-select-label">Manier van verkrijgen
-                                    <br>
-                                </label>
-                                <select class="form-control" name="wayOfRecieving">
-                                    <option value="pickup" selected="true">Afhalen</option>
-                                    <option value="delivery">Bezorgen +€4,95</option>
-                                </select>
-                            </div>
-                            <div class="">
-                                <label for="dateOfRecieving" class="formbuilder-date-label">Datum van bezorgen/afhalen
-                                    <br>
-                                </label>
-                                <input type="date" class="form-control" access="false" value="2023-01-01"
-                                    name="dateOfRecieving">
-                            </div>
-                            <div class="">
-                                <button type="submit" access="false">Afronden en Betalen
-                                    <br>
-                                </button>
+                            <div>
+
+                                <input type="submit" value="Log in">
+
                             </div>
                         </div>
 
+                    </form>
+                </div>
+                <a href="./logout.php" style="color: red;">Log uit</a>
+                <a href="./gebruiker-verwijder.php?id=<?php echo $_SESSION['user']['id']; ?> "style="color: red;"> Verwijder account</a>                
+                <div class="register form">
+                    <form action="verwerk/gebruiker-bewerk.php?id=<?php echo $id ?>" method="post">
+                        <div class="form-group">
+                            <label for="voornaam">Voornaam</label>
+                            <input type="text" name="voornaam" id="voornaam" value='<?php echo $firstname ?>'>
+                        </div>
+                        <div class="form-group">
+                            <label for="achternaam">Achternaam</label>
+                            <input type="text" name="achternaam" id="achternaam" value='<?php echo $lastname ?>'>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" disabled="true" name="email" id="email" value='<?php echo $email ?>'>
+                        </div>
+                        <div class="form-group">
+                            <label for="wachtwoord">Wachtwoord</label>
+                            <input type="text" name="wachtwoord" id="wachtwoord" value='<?php echo $password ?>'>
+                        </div>
+                        <div class="form-group">
+                            <label for="geboortedatum">Geboortedatum</label>
+                            <input type="date" name="geboortedatum" id="geboortedatum"
+                                value='<?php echo $date_of_birth ?>'>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="telefoonnummer">Telefoonnummer</label>
+                            <input type="text" name="telefoonnummer" id="telefoonnummer"
+                                value='<?php echo $phonenumber ?>'>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adres">Adres</label>
+                            <input type="text" name="adres" id="adres" value='<?php echo $adress ?>'>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" name="postcode" id="postcode" value='<?php echo $zipcode ?>'>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stad">Stad</label>
+                            <input type="text" name="stad" id="stad" value='<?php echo $city ?>'>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" name="submit">Bewerk</button>
+
+                        </div>
 
                     </form>
                 </div>
-
-
 
 
 

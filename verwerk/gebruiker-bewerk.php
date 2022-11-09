@@ -21,8 +21,8 @@ if (isset($_POST["submit"])) {
             $id = $_SESSION['user']['id'];
         }
 
-        $voornaam = $_POST["voornaam"];
         $achternaam = $_POST["achternaam"];
+        $voornaam = $_POST["voornaam"];
         $email = $_SESSION['user']['email'];
         $wachtwoord = $_POST["wachtwoord"];
         $telefoonnummer = $_POST["telefoonnummer"];
@@ -33,7 +33,8 @@ if (isset($_POST["submit"])) {
 
         $user = new User($conn);
         $user->update($id, $voornaam, $achternaam, $email, $wachtwoord, $telefoonnummer, $geboortedatum, $adres, $postcode, $stad);
-        header("location: ../gebruikeroverzicht.php");
+        $user->login($_SESSION['user']['email'], $_POST["wachtwoord"]);
+        header("location: ../acc-verander.php");
         mysqli_close($conn); // Sluit de database verbinding
     }
 }

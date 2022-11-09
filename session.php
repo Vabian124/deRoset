@@ -1,3 +1,3 @@
 <?php include('./blocks/header.php');
-include_once('./session.php');
+session_start();
 var_dump($_SESSION);

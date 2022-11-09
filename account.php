@@ -11,9 +11,10 @@
 <?php
 include_once('./verwerk/database.php');
 include_once('./classes/product.php');
-$products = new product($conn);
-$products = $products->getAll();
-
+if(isset($_SESSION['user']))
+{
+    header('location: ./acc-verander.php');
+}
 ?>
 <br>
 <style>
